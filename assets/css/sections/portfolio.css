@@ -1,0 +1,237 @@
+/* ===== ЧТО МЫ ИЗГОТАВЛИВАЕМ: аккордеон категорий ===== */
+.pf {
+    padding: 100px 48px;
+    background: var(--c-cream)
+}
+
+.pf__inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    gap: 48px;
+    align-items: center
+}
+
+.pf-eyebrow {
+    margin: 0 0 14px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--c-accent)
+}
+
+.pf-title {
+    margin: 0 0 20px;
+    font-size: 40px;
+    line-height: 1.2
+}
+
+.pf-text {
+    margin: 0;
+    max-width: 380px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--c-text)
+}
+
+/* Аккордеон */
+.pf-accordion {
+    display: flex;
+    gap: 14px;
+    height: 620px;
+    min-width: 0
+}
+
+.pf-panel {
+    position: relative;
+    isolation: isolate;
+    flex: 1 1 0;
+    display: block;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #2A2118;
+    text-decoration: none;
+    transition: flex-grow .55s cubic-bezier(.4, 0, .2, 1)
+}
+
+.pf-panel__img {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.pf-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(20, 26, 24, .15) 0%, rgba(20, 26, 24, .55) 55%, rgba(20, 26, 24, .88) 100%);
+    pointer-events: none
+}
+
+/* Свёрнутая панель: вертикальная подпись и номер */
+.pf-collapsed {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 0;
+    transition: opacity .35s ease;
+    pointer-events: none
+}
+
+.pf-vlabel {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: var(--f-serif);
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    color: var(--c-cream)
+}
+
+.pf-index {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    color: rgba(251, 244, 233, .7)
+}
+
+/* Развёрнутая панель */
+.pf-expanded {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 36px;
+    opacity: 0;
+    transition: opacity .4s ease .12s
+}
+
+.pf-count {
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--c-gold)
+}
+
+.pf-name {
+    margin-bottom: 10px;
+    font-family: var(--f-serif);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--c-cream)
+}
+
+.pf-desc {
+    margin-bottom: 20px;
+    max-width: 300px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #E4DACB
+}
+
+.pf-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 999px;
+    background: var(--c-gold);
+    color: var(--c-ink);
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background .2s ease
+}
+
+.pf-panel:hover .pf-btn {
+    background: #D9A75F
+}
+
+/* По умолчанию открыта первая */
+.pf-panel:first-child {
+    flex-grow: 4.2
+}
+
+.pf-panel:first-child .pf-collapsed {
+    opacity: 0
+}
+
+.pf-panel:first-child .pf-expanded {
+    opacity: 1
+}
+
+/* Наведение: раскрывается та, на которой мышь, остальные сжимаются */
+.pf-accordion:hover .pf-panel {
+    flex-grow: .6
+}
+
+.pf-accordion:hover .pf-panel .pf-collapsed {
+    opacity: 1
+}
+
+.pf-accordion:hover .pf-panel .pf-expanded {
+    opacity: 0
+}
+
+.pf-accordion .pf-panel:hover,
+.pf-accordion .pf-panel:focus-visible {
+    flex-grow: 4.2
+}
+
+.pf-accordion .pf-panel:hover .pf-collapsed {
+    opacity: 0
+}
+
+.pf-accordion .pf-panel:hover .pf-expanded {
+    opacity: 1
+}
+
+@media (max-width:1024px) {
+    .pf {
+        padding: 80px 24px
+    }
+
+    .pf__inner {
+        grid-template-columns: 1fr;
+        gap: 40px
+    }
+}
+
+@media (max-width:760px) {
+    .pf-accordion {
+        flex-direction: column;
+        height: auto
+    }
+
+    .pf-panel,
+    .pf-panel:first-child,
+    .pf-accordion:hover .pf-panel,
+    .pf-accordion .pf-panel:hover {
+        flex: none;
+        height: 220px
+    }
+
+    .pf-collapsed {
+        display: none
+    }
+
+    .pf-expanded,
+    .pf-accordion:hover .pf-panel .pf-expanded {
+        opacity: 1;
+        padding: 24px
+    }
+
+    .pf-title {
+        font-size: 32px
+    }
+}
