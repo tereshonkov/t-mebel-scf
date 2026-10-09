@@ -2,7 +2,7 @@
 defined('ABSPATH') || exit;
 
 /**
- * Підключає файл CSS/JS з версією за часом зміни (кеш скидається при кожному деплої).
+ * Повертає версію файлу CSS/JS за часом його зміни (кеш скидається при кожному деплої).
  */
 function tm_asset_version(string $rel): string
 {
@@ -11,7 +11,7 @@ function tm_asset_version(string $rel): string
 }
 
 add_action('wp_enqueue_scripts', function () {
-	//Шрифти (self-host, assets/fonts)
+	// Шрифти (self-host, assets/fonts)
 	wp_enqueue_style('tm-fonts', TM_URI . '/assets/css/fonts.css', array(), tm_asset_version('assets/css/fonts.css'));
 
 	// Глобальні стилі: токени, база, шапка, футер.
@@ -34,6 +34,16 @@ add_action('wp_enqueue_scripts', function () {
 		$js = "assets/js/sections/{$layout}.js";
 		if (file_exists(TM_DIR . '/' . $js)) {
 			wp_enqueue_script("tm-section-{$layout}", TM_URI . '/' . $js, array(), tm_asset_version($js), true);
+		}
+	}
+
+	// Сторінка "Наші роботи" (/service/) і сторінки категорій: у них немає секцій, тому підключаємо свої файли.
+	if (is_post_type_archive('project') || is_tax('project_category')) {
+		foreach (array('works', 'sections/form_card') as $name) {
+			$rel = "assets/css/{$name}.css";
+			if (file_exists(TM_DIR . '/' . $rel)) {
+				wp_enqueue_style('tm-' . str_replace('/', '-', $name), TM_URI . '/' . $rel, array('tm-base'), tm_asset_version($rel));
+			}
 		}
 	}
 

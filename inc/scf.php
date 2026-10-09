@@ -12,7 +12,9 @@ add_filter( 'acf/settings/load_json', function ( $paths ) {
 } );
 
 /**
- * Сторінка опцій: глобальні дані сайту (телефон, адреса, графік, соцмережі).
+ * Сторінки опцій:
+ * - "Налаштування сайту": глобальні дані сайту (телефон, адреса, графік, соцмережі);
+ * - "Наши работы": тексти для архіву проєктів /service/.
  */
 add_action( 'acf/init', function () {
 	if ( ! function_exists( 'acf_add_options_page' ) ) {
@@ -25,6 +27,15 @@ add_action( 'acf/init', function () {
 		'capability' => 'edit_posts',
 		'icon_url'   => 'dashicons-admin-generic',
 		'redirect'   => false,
+	) );
+
+	// Подстраница с текстами для архива проектов /service/ ("Наши работы").
+	acf_add_options_sub_page( array(
+		'page_title'  => 'Страница «Наши работы»',
+		'menu_title'  => 'Наши работы',
+		'parent_slug' => 'tm-site-options',
+		'menu_slug'   => 'tm-works-options',
+		'capability'  => 'edit_posts',
 	) );
 } );
 

@@ -69,6 +69,27 @@
             "rows": "",
             "placeholder": "",
             "new_lines": ""
+        },
+        {
+            "key": "field_6ac96b94a8826",
+            "label": "Полное название",
+            "name": "cat_full",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "Например: Кухні на замовлення",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -92,5 +113,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1791548465
+    "modified": 1791585195
 }

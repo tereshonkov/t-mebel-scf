@@ -584,6 +584,129 @@
                     "parent_repeater": "field_6ac8f095df6ab"
                 }
             ]
+        },
+        {
+            "key": "field_6ac937fdec2aa",
+            "label": "Контакты",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_6ac93855724f2",
+            "label": "Адрес (UA)",
+            "name": "address_ua",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "м. Харків, проспект Льва Ландау, 8",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6ac93894bc44f",
+            "label": "Адрес (RU)",
+            "name": "address_ru",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "г. Харьков, проспект Льва Ландау, 8",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "г. Харьков, проспект Льва Ландау, 8",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6ac938b4bc450",
+            "label": "Телефон для показа",
+            "name": "phone_display",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "067 149 67 41",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6ac938d3bc451",
+            "label": "График (UA)",
+            "name": "hours_ua",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Пн–Сб, 9:00–19:00",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6ac938eebc452",
+            "label": "График (RU)",
+            "name": "hours_ru",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Пн–Сб, 9:00–19:00",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -607,5 +730,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1791554418
+    "modified": 1791576486
 }

@@ -45,3 +45,16 @@ add_action( 'init', function () {
 		'rewrite'           => array( 'slug' => 'service', 'with_front' => false ),
 	) );
 } );
+
+/**
+ * Архив и категории проектов: 12 штук на страницу, по полю "Порядок", потом новые.
+ */
+add_action( 'pre_get_posts', function ( $query ) {
+	if ( is_admin() || ! $query->is_main_query() ) {
+		return;
+	}
+	if ( $query->is_post_type_archive( 'project' ) || $query->is_tax( 'project_category' ) ) {
+		$query->set( 'posts_per_page', 11 );
+		$query->set( 'orderby', array( 'menu_order' => 'ASC', 'date' => 'DESC' ) );
+	}
+} );
