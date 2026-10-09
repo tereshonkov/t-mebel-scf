@@ -1,33 +1,101 @@
 /* ===== Токени та база. Усі кольори і розміри беремо звідси ===== */
-:root{
-  --c-cream:#FBF4E9;
-  --c-cream-2:#F3E1C4;
-  --c-white:#FFFDF9;
-  --c-ink:#2A2118;
-  --c-text:#6B5B48;
-  --c-muted:#8A7A66;
-  --c-accent:#8A5A2E;
-  --c-gold:#E7B876;
-  --c-gold-line:#C9A063;
-  --c-brown:#4A2E1E;
-  --c-dark:#33200F;
-  --f-serif:'Playfair Display',serif;
-  --f-sans:'Jost',sans-serif;
-  --radius-lg:24px;
-  --radius-md:16px;
-  --container:1200px;
-  --gutter:48px;
+:root {
+  --c-cream: #FBF4E9;
+  --c-cream-2: #F3E1C4;
+  --c-white: #FFFDF9;
+  --c-ink: #2A2118;
+  --c-text: #6B5B48;
+  --c-muted: #8A7A66;
+  --c-accent: #8A5A2E;
+  --c-gold: #E7B876;
+  --c-gold-line: #C9A063;
+  --c-brown: #4A2E1E;
+  --c-dark: #33200F;
+  --f-serif: 'Playfair Display', serif;
+  --f-sans: 'Jost', sans-serif;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --container: 1200px;
+  --gutter: 48px;
 }
-*,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--c-cream);color:var(--c-ink);font-family:var(--f-sans);line-height:1.5;overflow-x:hidden}
-img{max-width:100%;height:auto}
-a{color:var(--c-accent)}
-a:hover{color:var(--c-brown)}
-::selection{background:var(--c-gold-line);color:var(--c-ink)}
-h1,h2,h3{font-family:var(--f-serif);font-weight:500;margin:0}
-.screen-reader-text{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.skip-link:focus{clip:auto;width:auto;height:auto;padding:8px 16px;background:#fff;z-index:100}
-.container{max-width:var(--container);margin:0 auto;padding-inline:var(--gutter)}
-@media (max-width:1024px){:root{--gutter:24px}}
-@media (max-width:600px){:root{--gutter:16px}}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box
+}
+
+html {
+  -webkit-text-size-adjust: 100%
+}
+
+body {
+  margin: 0;
+  background: var(--c-cream);
+  color: var(--c-ink);
+  font-family: var(--f-sans);
+  line-height: 1.5;
+  overflow-x: hidden
+}
+
+img {
+  max-width: 100%;
+  height: auto
+}
+
+a {
+  color: var(--c-accent)
+}
+
+a:hover {
+  color: var(--c-brown)
+}
+
+::selection {
+  background: var(--c-gold-line);
+  color: var(--c-ink)
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--f-serif);
+  font-weight: 500;
+  margin: 0
+}
+
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap
+}
+
+.skip-link:focus {
+  clip: auto;
+  width: auto;
+  height: auto;
+  padding: 8px 16px;
+  background: #fff;
+  z-index: 100
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-inline: var(--gutter)
+}
+
+@media (max-width:1024px) {
+  :root {
+    --gutter: 24px
+  }
+}
+
+@media (max-width:600px) {
+  :root {
+    --gutter: 16px
+  }
+}

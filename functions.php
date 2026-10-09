@@ -18,6 +18,7 @@ $tm_modules = array(
 	'inc/helpers.php',      // маленькі функції-помічники для шаблонів
 	'inc/polylang.php',     // мови, переклад CPT, рядки
 	'inc/scf.php',          // SCF: json, сторінка опцій, рендер секцій
+	'inc/nav.php',          // меню шапки: walker і мега-меню
 	'inc/cpt-project.php',  // тип запису "Проєкти" (перенесемо з блочної теми)
 );
 

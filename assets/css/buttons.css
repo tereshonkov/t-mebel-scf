@@ -1,1 +1,50 @@
-/* buttons: стилі підуть сюди на наступному кроці */
+/* ===== Кнопки ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 0;
+    border-radius: 999px;
+    padding: 12px 22px;
+    font: 700 14px/1 var(--f-sans);
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, border-color .2s ease
+}
+
+.btn--gold {
+    background: var(--c-gold);
+    color: var(--c-ink)
+}
+
+.btn--gold:hover {
+    background: #D9A75F;
+    color: var(--c-ink)
+}
+
+.btn--cream {
+    background: var(--c-cream);
+    color: var(--c-ink);
+    font-weight: 600;
+    padding: 12px 24px
+}
+
+.btn--cream:hover {
+    background: #F0E6D2;
+    color: var(--c-ink)
+}
+
+.btn--ghost-light {
+    background: transparent;
+    color: var(--c-cream);
+    border: 1px solid rgba(255, 255, 255, .5);
+    font-weight: 500;
+    padding: 11px 24px
+}
+
+.btn--ghost-light:hover {
+    background: rgba(255, 255, 255, .16);
+    color: var(--c-cream)
+}
