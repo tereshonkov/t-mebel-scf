@@ -1,0 +1,173 @@
+/* ===== КАК МЫ РАБОТАЕМ: зигзаг ===== */
+.how {
+    padding: 100px 48px;
+    background: var(--c-cream)
+}
+
+.how__inner {
+    max-width: var(--container);
+    margin: 0 auto
+}
+
+.how__head {
+    margin-bottom: 56px;
+    text-align: center
+}
+
+.how__eyebrow {
+    margin: 0 0 14px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--c-accent)
+}
+
+.how__title {
+    font-size: 34px
+}
+
+.zig {
+    position: relative;
+    max-width: 940px;
+    margin: 0 auto
+}
+
+.zig-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1.5px;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, var(--c-gold-line) 0%, var(--c-gold-line) 92%, transparent 100%)
+}
+
+.zig-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.zig-row {
+    display: grid;
+    grid-template-columns: 1fr 88px 1fr;
+    align-items: center
+}
+
+.zig-side {
+    min-height: 20px
+}
+
+.zig-node {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.zig-num {
+    position: relative;
+    z-index: 2;
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid var(--c-gold-line);
+    border-radius: 50%;
+    background: var(--c-cream);
+    box-shadow: 0 0 0 8px var(--c-cream);
+    font-family: var(--f-serif);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--c-accent)
+}
+
+.zig-card {
+    padding: 28px 30px;
+    border-radius: 20px;
+    background: var(--c-white);
+    box-shadow: 0 12px 30px -18px rgba(42, 33, 24, .25);
+    transition: transform .25s ease
+}
+
+.zig-card--left {
+    text-align: right
+}
+
+.zig-card--right {
+    text-align: left
+}
+
+.zig-card--left:hover {
+    transform: translateX(-6px)
+}
+
+.zig-card--right:hover {
+    transform: translateX(6px)
+}
+
+.zig-card__title {
+    margin: 0 0 8px;
+    font-family: var(--f-sans);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--c-ink)
+}
+
+.zig-card__desc {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--c-text)
+}
+
+.zig-card__foot {
+    margin: 20px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid rgba(42, 33, 24, .08);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--c-accent)
+}
+
+@media (max-width:1024px) {
+    .how {
+        padding: 80px 24px
+    }
+}
+
+@media (max-width:760px) {
+    .zig-row {
+        display: block
+    }
+
+    .zig-node,
+    .zig-line {
+        display: none
+    }
+
+    .zig-side:empty {
+        display: none
+    }
+
+    .zig-side {
+        margin-bottom: 12px
+    }
+
+    .zig-card,
+    .zig-card--left {
+        text-align: left
+    }
+
+    .zig-card:hover {
+        transform: none
+    }
+
+    .how__title {
+        font-size: 28px
+    }
+}

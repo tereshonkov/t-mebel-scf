@@ -25,3 +25,15 @@ function tm_languages(): array {
 	$langs = pll_the_languages( array( 'raw' => 1, 'hide_if_no_translation' => 0 ) );
 	return is_array( $langs ) ? $langs : array();
 }
+
+/**
+ * Хлебные крошки Rank Math: первый пункт ведёт на главную ТЕКУЩЕГО языка.
+ * Без этого на RU-страницах "Главная" вела на украинскую /.
+ */
+add_filter( 'rank_math/frontend/breadcrumb/items', function ( $crumbs ) {
+	if ( function_exists( 'pll_home_url' ) && ! empty( $crumbs[0] ) ) {
+		$crumbs[0][0] = tm_t( 'Головна', 'Главная' ); // подпись
+		$crumbs[0][1] = pll_home_url();               // ссылка
+	}
+	return $crumbs;
+} );

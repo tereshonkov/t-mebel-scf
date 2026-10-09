@@ -1,0 +1,71 @@
+/* ===== ЦЕНЫ: полоса с фоном-параллаксом ===== */
+.pricing {
+    position: relative;
+    isolation: isolate;
+    min-height:max(640px,85vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1c2624;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed
+}
+
+.pricing::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(20, 26, 24, .55) 0%, rgba(20, 26, 24, .7) 100%)
+}
+
+.pricing__box {
+    max-width: 640px;
+    padding: 64px 40px;
+    text-align: center
+}
+
+.pricing__eyebrow {
+    margin-bottom: 18px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--c-gold)
+}
+
+.pricing__title {
+    margin: 0 0 22px;
+    font-size: 40px;
+    line-height: 1.25;
+    color: var(--c-cream)
+}
+
+.pricing__text {
+    margin: 0 0 36px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #E4DACB
+}
+
+/* На планшетах и телефонах fixed-фон работает плохо (iOS его игнорирует, Android дёргается) */
+@media (max-width:1024px) {
+    .pricing {
+        background-attachment: scroll
+    }
+}
+
+@media (max-width:760px) {
+    .pricing {
+        min-height: 480px
+    }
+
+    .pricing__box {
+        padding: 48px 24px
+    }
+
+    .pricing__title {
+        font-size: 30px
+    }
+}
