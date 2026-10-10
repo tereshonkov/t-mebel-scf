@@ -1,18 +1,116 @@
 /* ===== ЗАГОЛОВОК ВНУТРЕННЕЙ СТРАНИЦЫ ===== */
-.page-head{padding:72px 48px 40px;background:var(--c-cream)}
-.page-head__inner{max-width:var(--container);margin:0 auto}
+.page-head {
+	padding: 72px 48px 40px;
+	background: var(--c-cream);
+}
+
+.page-head__inner {
+	max-width: var(--container);
+	margin: 0 auto;
+}
 
 /* Хлебные крошки: наши и Rank Math */
-.crumbs,.rank-math-breadcrumb{margin:0 0 24px;font-size:13px;color:#4A3B2C}
-.crumbs a,.rank-math-breadcrumb a{color:var(--c-muted);text-decoration:none}
-.crumbs a:hover,.rank-math-breadcrumb a:hover{color:var(--c-brown)}
-.crumbs span[aria-hidden],.rank-math-breadcrumb .separator{margin:0 8px;color:var(--c-muted)}
-.rank-math-breadcrumb p{margin:0}
+.crumbs,
+.rank-math-breadcrumb {
+	margin: 0 0 24px;
+	font-size: 13px;
+	color: #4A3B2C;
+}
 
-.page-head__text{max-width:720px}
-.page-head__eyebrow{margin-bottom:16px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c-accent)}
-.page-head__title{margin:0 0 18px;font-size:54px;line-height:1.1;color:var(--c-ink)}
-.page-head__lead{margin:0;font-size:17px;line-height:1.65;color:#5E4E3A}
+.crumbs a,
+.rank-math-breadcrumb a {
+	color: var(--c-muted);
+	text-decoration: none;
+}
 
-@media (max-width:1024px){.page-head{padding:56px 24px 24px}}
-@media (max-width:600px){.page-head__title{font-size:38px}}
+.crumbs a:hover,
+.rank-math-breadcrumb a:hover {
+	color: var(--c-brown);
+}
+
+.crumbs span[aria-hidden],
+.rank-math-breadcrumb .separator {
+	margin: 0 8px;
+	color: var(--c-muted);
+}
+
+.rank-math-breadcrumb p {
+	margin: 0;
+}
+
+/* Текстовый блок: по умолчанию узкий, текст под заголовком */
+.page-head__text {
+	max-width: 720px;
+}
+
+.page-head__eyebrow {
+	margin-bottom: 16px;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: var(--c-accent);
+}
+
+.page-head__title {
+	margin: 0 0 18px;
+	font-size: 54px;
+	line-height: 1.1;
+	color: var(--c-ink);
+}
+
+.page-head__lead {
+	margin: 0;
+	font-size: 17px;
+	line-height: 1.65;
+	color: #5E4E3A;
+}
+
+/* ===== Вариант --split: надзаголовок и H1 слева, вводный текст справа ===== */
+.page-head--split .page-head__text {
+	max-width: none;
+	display: grid;
+	grid-template-columns: 1.15fr 1fr;
+	column-gap: 48px;
+	align-items: end;
+}
+
+.page-head--split .page-head__eyebrow,
+.page-head--split .page-head__title {
+	grid-column: 1;
+}
+
+.page-head--split .page-head__title {
+	margin-bottom: 0;
+}
+
+.page-head--split .page-head__lead {
+	grid-column: 2;
+	grid-row: 1 / span 2;
+	align-self: end;
+}
+
+/* ===== Адаптив ===== */
+@media (max-width: 1024px) {
+	.page-head {
+		padding: 56px 24px 24px;
+	}
+}
+
+@media (max-width: 900px) {
+	.page-head--split .page-head__text {
+		grid-template-columns: 1fr;
+	}
+
+	.page-head--split .page-head__lead {
+		grid-column: 1;
+		grid-row: auto;
+		margin-top: 20px;
+	}
+}
+
+@media (max-width: 600px) {
+	.page-head__title {
+		font-size: 38px;
+	}
+}

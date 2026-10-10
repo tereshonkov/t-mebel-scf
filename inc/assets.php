@@ -47,6 +47,23 @@ add_action('wp_enqueue_scripts', function () {
 		}
 	}
 
+	if ( is_singular( 'project' ) ) {
+		$rel = 'assets/css/project.css';
+		if ( file_exists( TM_DIR . '/' . $rel ) ) {
+			wp_enqueue_style( 'tm-project', TM_URI . '/' . $rel, array( 'tm-base' ), tm_asset_version( $rel ) );
+		}
+
+		$rel_js = 'assets/js/project.js';
+		if ( file_exists( TM_DIR . '/' . $rel_js ) ) {
+			wp_enqueue_script( 'tm-project-js', TM_URI . '/' . $rel_js, array(), tm_asset_version( $rel_js ), true );
+		}
+
+		$rel_lead = 'assets/css/sections/lead.css';
+		if ( file_exists( TM_DIR . '/' . $rel_lead ) ) {
+			wp_enqueue_style( 'tm-section-lead', TM_URI . '/' . $rel_lead, array( 'tm-base' ), tm_asset_version( $rel_lead ) );
+		}
+	}
+
 	// Глобальний скрипт сайту.
 	$main = 'assets/js/main.js';
 	if (file_exists(TM_DIR . '/' . $main)) {

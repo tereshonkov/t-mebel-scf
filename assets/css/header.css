@@ -92,9 +92,23 @@ body.admin-bar:not(.home) .site-header {
     color: var(--c-cream)
 }
 
+/* Стрілка "Наші роботи": як у перемикача мов */
 .nav-caret {
-    font-size: 9px;
-    opacity: .6
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin: -3px 0 0 2px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    font-size: 0;
+    transition: transform .2s ease, margin .2s ease
+}
+
+.mm-wrap:hover .nav-caret,
+.mm-wrap:focus-within .nav-caret {
+    transform: rotate(225deg);
+    margin-top: 3px
 }
 
 /* Мега-меню */

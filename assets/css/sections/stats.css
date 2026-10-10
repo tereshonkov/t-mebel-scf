@@ -1,0 +1,46 @@
+.stats-band {
+	background: #F3E1C4;
+	padding: 64px 48px;
+}
+
+.stats-band__list {
+	list-style: none;
+	margin: 0 auto;
+	padding: 0;
+	max-width: 1200px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 24px;
+}
+
+.stats-band__item {
+	text-align: center;
+}
+
+.stats-band__value {
+	display: block;
+	font-family: 'Playfair Display', serif;
+	font-size: 46px;
+	font-weight: 500;
+	color: #4A2E1E;
+	line-height: 1;
+}
+
+.stats-band__label {
+	display: block;
+	font-size: 14px;
+	color: #6B5B48;
+	margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+	.stats-band__list {
+		grid-template-columns: repeat(2, 1fr);
+		row-gap: 36px;
+	}
+}
+
+@media (max-width: 560px) {
+	.stats-band { padding: 48px 20px; }
+	.stats-band__value { font-size: 38px; }
+}

@@ -1,0 +1,169 @@
+.price-form {
+	background: #FBF4E9;
+	padding: 90px 48px;
+}
+
+.price-form__inner {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 56px;
+	align-items: center;
+}
+
+.price-form__eyebrow {
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: #8A5A2E;
+	margin-bottom: 16px;
+}
+
+.price-form__title {
+	font-family: 'Playfair Display', serif;
+	font-weight: 500;
+	font-size: 34px;
+	line-height: 1.25;
+	margin: 0 0 20px;
+}
+
+.price-form__text {
+	font-size: 16px;
+	line-height: 1.7;
+	color: #5E4E3A;
+	margin: 0 0 24px;
+}
+
+.price-form__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.price-form__list li {
+	position: relative;
+	padding-left: 28px;
+	font-size: 15px;
+	line-height: 1.55;
+	color: #4A3B2C;
+}
+
+/* золотая чёрточка слева от пункта */
+.price-form__list li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: .75em;
+	width: 16px;
+	height: 2px;
+	background: #E7B876;
+}
+
+/* карточка с формой */
+.price-form__card {
+	background: #FFFDF9;
+	border-radius: 22px;
+	padding: 48px 44px;
+	color: #2A2118;
+	box-shadow: 0 30px 60px -34px rgba(42, 33, 24, .3);
+	border: 1px solid rgba(42, 33, 24, .06);
+}
+
+.price-form__card-title {
+	font-family: 'Playfair Display', serif;
+	font-weight: 500;
+	font-size: 26px;
+	line-height: 1.3;
+	margin: 0 0 14px;
+}
+
+.price-form__card-text {
+	font-size: 15px;
+	line-height: 1.6;
+	color: #6B5B48;
+	margin: 0 0 28px;
+}
+
+/* поля CF7 */
+.price-form .pf-fields {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.price-form .wpcf7-form-control-wrap {
+	display: block;
+}
+
+.price-form input[type="text"],
+.price-form input[type="tel"] {
+	width: 100%;
+	box-sizing: border-box;
+	background: #FBF4E9;
+	border: 1px solid rgba(42, 33, 24, .14);
+	color: #2A2118;
+	padding: 15px 18px;
+	border-radius: 12px;
+	font-size: 15px;
+	font-family: inherit;
+	outline: none;
+	transition: border-color .2s;
+}
+
+.price-form input[type="text"]:focus,
+.price-form input[type="tel"]:focus {
+	border-color: #E7B876;
+}
+
+.price-form .wpcf7-submit {
+	width: 100%;
+	background: #E7B876;
+	color: #2A2118;
+	border: none;
+	padding: 16px 30px;
+	border-radius: 12px;
+	font-size: 16px;
+	font-weight: 700;
+	font-family: inherit;
+	cursor: pointer;
+	transition: filter .2s;
+}
+
+.price-form .wpcf7-submit:hover {
+	filter: brightness(1.05);
+}
+
+/* сообщения CF7 */
+.price-form .wpcf7-not-valid-tip {
+	font-size: 13px;
+	margin-top: 6px;
+}
+
+.price-form .wpcf7-response-output {
+	margin: 18px 0 0 !important;
+	border-radius: 10px;
+	font-size: 14px;
+}
+
+.price-form .wpcf7-spinner {
+	display: block;
+	margin: 10px auto 0;
+}
+
+@media (max-width: 900px) {
+	.price-form__inner {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+}
+
+@media (max-width: 560px) {
+	.price-form { padding: 60px 20px; }
+	.price-form__title { font-size: 26px; }
+	.price-form__card { padding: 32px 22px; }
+}

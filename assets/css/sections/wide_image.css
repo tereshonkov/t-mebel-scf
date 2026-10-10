@@ -1,0 +1,26 @@
+.wide-image {
+	padding: 24px 20px;
+}
+
+.wide-image__box {
+	max-width: 1200px;
+	height: 460px;
+	margin: 0 auto;
+	border-radius: 28px;
+	overflow: hidden;
+	background: #EBDDC4;
+}
+
+.wide-image__img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+@media (max-width: 760px) {
+	.wide-image__box {
+		height: 280px;
+		border-radius: 20px;
+	}
+}

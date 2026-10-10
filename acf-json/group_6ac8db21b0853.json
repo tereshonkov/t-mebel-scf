@@ -90,6 +90,27 @@
             "placeholder": "Например: Кухні на замовлення",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_6aca7fd81d7ec",
+            "label": "Текст кнопки «назад»",
+            "name": "cat_back",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "Необязательно. Если пусто, будет «Усі + название категории». Для «Інше» впишите «Усі роботи»",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -113,5 +134,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1791585195
+    "modified": 1791655949
 }
