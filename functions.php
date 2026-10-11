@@ -20,6 +20,7 @@ $tm_modules = array(
 	'inc/scf.php',          // SCF: json, сторінка опцій, рендер секцій
 	'inc/nav.php',          // меню шапки: walker і мега-меню
 	'inc/cpt-project.php',  // тип запису "Проєкти" (перенесемо з блочної теми)
+	'inc/cpt-guide.php',    // тип запису "Статті" (блог /guides/)
 );
 
 foreach ( $tm_modules as $tm_file ) {
