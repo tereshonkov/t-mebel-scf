@@ -192,3 +192,20 @@ function tm_guide_cta_html( $term ): string {
 
 	return $html;
 }
+
+/**
+ * Адрес страницы политики конфиденциальности на текущем языке.
+ * Страница выбирается в Настройки → Конфиденциальность.
+ */
+function tm_privacy_url(): string {
+	$id = (int) get_option( 'wp_page_for_privacy_policy' );
+	if ( ! $id ) {
+		return '';
+	}
+
+	if ( function_exists( 'pll_get_post' ) ) {
+		$id = (int) ( pll_get_post( $id ) ?: $id );
+	}
+
+	return 'publish' === get_post_status( $id ) ? get_permalink( $id ) : '';
+}

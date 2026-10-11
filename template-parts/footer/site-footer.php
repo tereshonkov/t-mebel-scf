@@ -13,6 +13,7 @@ $phone     = tm_opt( 'phone' );
 $tel       = $phone ? 'tel:' . preg_replace( '/[^+\d]/', '', $phone ) : '';
 $messenger = tm_opt( 'messenger_url' );
 $socials   = tm_opt( 'socials', array() );
+$privacy   = tm_privacy_url();
 ?>
 <footer class="site-footer">
 	<div class="site-footer__inner">
@@ -84,7 +85,10 @@ $socials   = tm_opt( 'socials', array() );
 		</div>
 
 		<p class="foot-copy">
-			&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> T-MEBEL. <?php echo esc_html( tm_t( 'Всі права захищені', 'Все права защищены' ) ); ?>
+			<span>&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> T-MEBEL. <?php echo esc_html( tm_t( 'Всі права захищені', 'Все права защищены' ) ); ?></span>
+			<?php if ( $privacy ) : ?>
+				<a class="foot-privacy" href="<?php echo esc_url( $privacy ); ?>"><?php echo esc_html( tm_t( 'Політика конфіденційності', 'Политика конфиденциальности' ) ); ?></a>
+			<?php endif; ?>
 		</p>
 
 	</div>

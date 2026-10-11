@@ -30,3 +30,22 @@
   .sticky-cta__msg{background:rgba(251,244,233,.14);color:var(--c-cream)}
   body.menu-open .sticky-cta{display:none}
 }
+
+/* Копирайт слева, политика справа */
+.foot-copy {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 8px 16px;
+	flex-wrap: wrap;
+}
+
+.foot-privacy {
+	color: #E7B876;
+	text-decoration: none;
+}
+
+.foot-privacy:hover {
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}

@@ -22,6 +22,7 @@ $tm_modules = array(
 	'inc/cpt-project.php',  // тип запису "Проєкти" (перенесемо з блочної теми)
 	'inc/cpt-guide.php',    // тип запису "Статті" (блог /guides/)
 	'inc/popup.php', 	  // попапи (рендер форм)
+	'inc/cf7.php',          // CF7: згода з політикою під усіма формами
 );
 
 foreach ( $tm_modules as $tm_file ) {
