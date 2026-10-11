@@ -23,6 +23,7 @@ $tm_modules = array(
 	'inc/cpt-guide.php',    // тип запису "Статті" (блог /guides/)
 	'inc/popup.php', 	  // попапи (рендер форм)
 	'inc/cf7.php',          // CF7: згода з політикою під усіма формами
+	'inc/telegram.php',     // заявки з форм CF7 у Telegram
 );
 
 foreach ( $tm_modules as $tm_file ) {
