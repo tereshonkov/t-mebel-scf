@@ -82,6 +82,13 @@ add_action('wp_enqueue_scripts', function () {
 		}
 	}
 
+	if ( is_404() ) {
+	$rel = 'assets/css/404.css';
+		if ( file_exists( TM_DIR . '/' . $rel ) ) {
+			wp_enqueue_style( 'tm-404', TM_URI . '/' . $rel, array( 'tm-base' ), tm_asset_version( $rel ) );
+		}
+	}
+
 	// Глобальний скрипт сайту.
 	$main = 'assets/js/main.js';
 	if (file_exists(TM_DIR . '/' . $main)) {

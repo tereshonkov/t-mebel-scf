@@ -1,0 +1,169 @@
+.nf {
+	padding: 72px 48px 96px;
+}
+
+.nf__inner {
+	max-width: 1000px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.nf__num {
+	font-family: 'Playfair Display', serif;
+	font-weight: 500;
+	font-size: 180px;
+	line-height: .9;
+	letter-spacing: -.02em;
+	color: #E7B876;
+	margin-bottom: 20px;
+}
+
+.nf__num em {
+	font-style: italic;
+	color: #C9A063;
+}
+
+.nf__title {
+	font-family: 'Playfair Display', serif;
+	font-weight: 500;
+	font-size: 40px;
+	line-height: 1.2;
+	margin: 0 0 14px;
+}
+
+.nf__text {
+	font-size: 17px;
+	line-height: 1.65;
+	color: #6B5B48;
+	margin: 0 0 36px;
+	max-width: 480px;
+	text-wrap: pretty;
+}
+
+.nf__actions {
+	display: flex;
+	justify-content: center;
+	gap: 14px;
+	margin-bottom: 64px;
+}
+
+.nf__btn {
+	display: inline-block;
+	padding: 16px 30px;
+	border-radius: 999px;
+	font-size: 16px;
+	font-weight: 700;
+	text-decoration: none;
+	transition: background .2s ease, color .2s ease;
+}
+
+.nf__btn--gold {
+	background: #E7B876;
+	color: #2A2118;
+	border: 1.5px solid #E7B876;
+}
+
+.nf__btn--gold:hover {
+	background: #D9A75F;
+	border-color: #D9A75F;
+	color: #2A2118;
+}
+
+.nf__btn--ghost {
+	background: transparent;
+	color: #4A2E1E;
+	border: 1.5px solid #4A2E1E;
+}
+
+.nf__btn--ghost:hover {
+	background: #4A2E1E;
+	color: #FBF4E9;
+}
+
+.nf__cats {
+	width: 100%;
+}
+
+.nf__label {
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: #8A5A2E;
+	margin-bottom: 18px;
+}
+
+.nf__grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 16px;
+}
+
+.nf__card {
+	position: relative;
+	display: block;
+	height: 150px;
+	border-radius: 18px;
+	overflow: hidden;
+	text-decoration: none;
+	background: #EBDDC4;
+	box-shadow: 0 16px 40px -26px rgba(42, 33, 24, .5);
+}
+
+.nf__img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform .6s cubic-bezier(.2, 0, .2, 1);
+}
+
+.nf__card:hover .nf__img {
+	transform: scale(1.06);
+}
+
+.nf__scrim {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, rgba(20, 16, 10, 0) 30%, rgba(20, 16, 10, .8) 100%);
+}
+
+.nf__name {
+	position: absolute;
+	left: 18px;
+	right: 18px;
+	bottom: 14px;
+	text-align: left;
+	font-family: 'Playfair Display', serif;
+	font-size: 20px;
+	font-weight: 500;
+	color: #FBF4E9;
+}
+
+@media (max-width: 960px) {
+	.nf__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 560px) {
+	.nf { padding: 48px 20px 72px; }
+	.nf__num { font-size: 120px; }
+	.nf__title { font-size: 30px; }
+
+	.nf__actions {
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.nf__btn {
+		width: 100%;
+		text-align: center;
+	}
+
+	.nf__card { height: 120px; }
+}
