@@ -37,6 +37,14 @@ add_action( 'acf/init', function () {
 		'menu_slug'   => 'tm-works-options',
 		'capability'  => 'edit_posts',
 	) );
+
+	acf_add_options_sub_page( array(
+		'page_title'  => 'Страница «Статьи»',
+		'menu_title'  => 'Статьи',
+		'parent_slug' => 'tm-site-options',
+		'menu_slug'   => 'tm-guides-options',
+		'capability'  => 'edit_posts',
+	) );
 } );
 
 /**

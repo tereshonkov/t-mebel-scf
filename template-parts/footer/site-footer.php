@@ -42,7 +42,7 @@ $socials   = tm_opt( 'socials', array() );
 				<?php endif; ?>
 
 				<?php if ( $tel ) : ?>
-					<a class="btn btn--gold" href="<?php echo esc_url( $tel ); ?>"><?php echo esc_html( tm_t( 'Зателефонувати', 'Позвонить' ) ); ?></a>
+					<a class="btn btn--gold" href="<?php echo esc_url( $tel ); ?>"><?php echo esc_html( tm_t( '+380671496741', '+380671496741' ) ); ?></a>
 				<?php endif; ?>
 			</div>
 

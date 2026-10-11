@@ -1,0 +1,117 @@
+{
+    "key": "group_6acb7cc6c0533",
+    "title": "Рубрика статей",
+    "fields": [
+        {
+            "key": "field_6acb7cc82087d",
+            "label": "Заголовок плашки",
+            "name": "cta_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "Пусто = плашки в статьях не будет»",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6acb7cef2087e",
+            "label": "Текст плашки",
+            "name": "cta_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6acb7d022087f",
+            "label": "Текст кнопки",
+            "name": "cta_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6acb7d1c20880",
+            "label": "Куда ведёт кнопка",
+            "name": "cta_target",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "project_category",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "select",
+            "allow_null": 1,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "guide_category"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1791721157
+}

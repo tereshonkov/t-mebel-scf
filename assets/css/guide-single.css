@@ -1,0 +1,463 @@
+/* ---- Шапка статьи ---- */
+.ar-head {
+	padding: 56px 48px 40px;
+}
+
+.ar-head__inner {
+	max-width: 880px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.ar-head .crumbs {
+	justify-content: center;
+	margin-bottom: 28px;
+}
+
+.ar-badge {
+	display: inline-flex;
+	background: #F3E1C4;
+	color: #8A5A2E;
+	padding: 7px 16px;
+	border-radius: 999px;
+	font-size: 13px;
+	font-weight: 700;
+	text-decoration: none;
+	margin-bottom: 22px;
+}
+
+.ar-h1 {
+	font-family: 'Playfair Display', serif;
+	font-weight: 500;
+	font-size: 50px;
+	line-height: 1.15;
+	margin: 0 0 22px;
+}
+
+.ar-meta {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 14px;
+	font-size: 14px;
+	color: #8A7A66;
+}
+
+.ar-meta > * {
+	white-space: nowrap;
+}
+
+.ar-dot {
+	color: #C9B9A2;
+}
+
+/* ---- Большое фото ---- */
+.ar-hero {
+	padding: 0 48px 72px;
+}
+
+.ar-hero__box {
+	max-width: 1200px;
+	height: 540px;
+	margin: 0 auto;
+	border-radius: 28px;
+	overflow: hidden;
+	background: #EBDDC4;
+	box-shadow: 0 40px 80px -44px rgba(42, 33, 24, .55);
+}
+
+.ar-hero__img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* ---- Оглавление + текст ---- */
+.ar-main {
+	padding: 0 48px 100px;
+}
+
+.ar-layout {
+	max-width: 1100px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 240px minmax(0, 1fr);
+	gap: 72px;
+	align-items: start;
+}
+
+.ar-layout--no-toc {
+	grid-template-columns: minmax(0, 720px);
+	justify-content: center;
+}
+
+.ar-toc {
+	position: sticky;
+	top: 110px;
+}
+
+.ar-toc__title {
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: #8A5A2E;
+	margin-bottom: 14px;
+}
+
+.ar-toc a {
+	display: block;
+	padding: 9px 0 9px 16px;
+	border-left: 2px solid rgba(42, 33, 24, .12);
+	font-size: 14px;
+	line-height: 1.4;
+	color: #6B5B48;
+	text-decoration: none;
+	transition: color .2s ease, border-color .2s ease;
+}
+
+.ar-toc a:hover {
+	color: #2A2118;
+	border-color: #E7B876;
+}
+
+/* ---- Типографика текста статьи ---- */
+.ar-body {
+	max-width: 720px;
+	font-size: 17px;
+	line-height: 1.8;
+	color: #4A3B2C;
+}
+
+.ar-body > p:first-child {
+	font-size: 20px;
+	line-height: 1.7;
+	color: #2A2118;
+}
+
+.ar-body p {
+	margin: 0 0 20px;
+}
+
+.ar-body h2 {
+	font-family: 'Playfair Display', serif;
+	font-weight: 500;
+	font-size: 30px;
+	line-height: 1.3;
+	color: #2A2118;
+	margin: 56px 0 18px;
+	scroll-margin-top: 110px;
+}
+
+.ar-body h3 {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 1.4;
+	color: #2A2118;
+	margin: 36px 0 12px;
+}
+
+.ar-body a {
+	color: #8A5A2E;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.ar-body a:hover {
+	color: #4A2E1E;
+}
+
+/* Маркированный список: золотая чёрточка */
+.ar-body ul {
+	list-style: none;
+	margin: 0 0 24px;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.ar-body ul li {
+	position: relative;
+	padding-left: 28px;
+	line-height: 1.7;
+}
+
+.ar-body ul li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: .85em;
+	width: 16px;
+	height: 2px;
+	background: #E7B876;
+}
+
+/* Нумерованный список */
+.ar-body ol {
+	margin: 0 0 24px;
+	padding-left: 24px;
+}
+
+.ar-body ol li {
+	margin-bottom: 10px;
+	padding-left: 6px;
+}
+
+.ar-body ol li::marker {
+	color: #8A5A2E;
+	font-weight: 700;
+}
+
+/* Цитата (блок «Цитата» в редакторе) */
+.ar-body blockquote {
+	margin: 40px 0;
+	padding: 8px 0 8px 28px;
+	border-left: 3px solid #E7B876;
+	font-family: 'Playfair Display', serif;
+	font-style: italic;
+	font-size: 24px;
+	line-height: 1.45;
+	color: #2A2118;
+}
+
+.ar-body blockquote p {
+	margin: 0;
+}
+
+.ar-body blockquote cite {
+	display: block;
+	margin-top: 12px;
+	font-family: 'Jost', sans-serif;
+	font-style: normal;
+	font-size: 14px;
+	color: #8A7A66;
+}
+
+/* Картинки в тексте (блок «Изображение») */
+.ar-body figure {
+	margin: 40px 0;
+}
+
+.ar-body figure img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 20px;
+	box-shadow: 0 30px 60px -36px rgba(42, 33, 24, .45);
+}
+
+.ar-body figcaption {
+	font-size: 13px;
+	line-height: 1.5;
+	color: #8A7A66;
+	margin-top: 12px;
+	text-align: left;
+}
+
+/* Низ статьи */
+.ar-foot {
+	margin-top: 56px;
+	padding-top: 28px;
+	border-top: 1px solid rgba(42, 33, 24, .12);
+}
+
+.ar-back {
+	font-size: 15px;
+	font-weight: 700;
+	color: #8A5A2E;
+	text-decoration: none;
+}
+
+.ar-back:hover {
+	color: #4A2E1E;
+}
+
+/* ---- Читайте також ---- */
+.ar-related-sec {
+	background: #F3E1C4;
+	padding: 90px 48px;
+}
+
+.ar-related-wrap {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.ar-related-head {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 24px;
+	flex-wrap: wrap;
+	margin-bottom: 36px;
+}
+
+.ar-related-title {
+	font-family: 'Playfair Display', serif;
+	font-weight: 500;
+	font-size: 34px;
+	margin: 0;
+}
+
+.ar-related-all {
+	font-size: 15px;
+	font-weight: 700;
+	color: #8A5A2E;
+	text-decoration: none;
+}
+
+.ar-related {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 28px;
+}
+
+.ar-card {
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+	color: inherit;
+}
+
+.ar-card__media {
+	position: relative;
+	height: 220px;
+	border-radius: 18px;
+	overflow: hidden;
+	margin-bottom: 18px;
+	background: #EBDDC4;
+	box-shadow: 0 16px 40px -26px rgba(42, 33, 24, .5);
+}
+
+.ar-card__img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform .6s cubic-bezier(.2, 0, .2, 1);
+}
+
+.ar-card:hover .ar-card__img {
+	transform: scale(1.05);
+}
+
+.ar-card__meta {
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: .06em;
+	text-transform: uppercase;
+	color: #8A5A2E;
+	margin-bottom: 10px;
+}
+
+.ar-card__title {
+	font-family: 'Playfair Display', serif;
+	font-weight: 500;
+	font-size: 21px;
+	line-height: 1.3;
+	margin: 0;
+	color: #2A2118;
+	transition: color .2s ease;
+}
+
+.ar-card:hover .ar-card__title {
+	color: #8A5A2E;
+}
+
+/* ---- Адаптив ---- */
+@media (max-width: 960px) {
+	.ar-layout {
+		grid-template-columns: 1fr;
+		gap: 0;
+	}
+
+	.ar-toc {
+		display: none;
+	}
+
+	.ar-related {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media (max-width: 760px) {
+	.ar-head { padding: 36px 20px 28px; }
+	.ar-h1 { font-size: 32px; }
+	.ar-hero { padding: 0 20px 48px; }
+	.ar-hero__box { height: 280px; border-radius: 20px; }
+	.ar-main { padding: 0 20px 64px; }
+	.ar-body { font-size: 16px; }
+	.ar-body > p:first-child { font-size: 18px; }
+	.ar-body h2 { font-size: 26px; margin-top: 44px; }
+	.ar-body blockquote { font-size: 20px; padding-left: 20px; }
+	.ar-related-sec { padding: 60px 20px; }
+	.ar-related { grid-template-columns: 1fr; }
+}
+
+/* ---- Плашка-призыв в тексте статьи ---- */
+.ar-cta {
+	margin: 48px 0;
+	padding: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 28px;
+	flex-wrap: wrap;
+	background: #FFFDF9;
+	border: 1px solid rgba(42, 33, 24, .06);
+	border-radius: 22px;
+	box-shadow: 0 24px 50px -34px rgba(42, 33, 24, .4);
+}
+
+.ar-cta__text {
+	max-width: 400px;
+}
+
+.ar-cta__title {
+	font-family: 'Playfair Display', serif;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.3;
+	color: #2A2118;
+	margin-bottom: 8px;
+}
+
+.ar-cta__desc {
+	font-size: 15px;
+	line-height: 1.6;
+	color: #6B5B48;
+}
+
+.ar-body .ar-cta__btn {
+	display: inline-block;
+	background: #E7B876;
+	color: #2A2118;
+	padding: 16px 30px;
+	border-radius: 999px;
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.2;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: background .2s;
+}
+
+.ar-body .ar-cta__btn:hover {
+	background: #D9A75F;
+	color: #2A2118;
+}
+
+@media (max-width: 560px) {
+	.ar-cta {
+		padding: 28px 22px;
+	}
+
+	.ar-body .ar-cta__btn {
+		width: 100%;
+		text-align: center;
+	}
+}

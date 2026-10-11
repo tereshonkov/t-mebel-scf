@@ -123,7 +123,7 @@ while ( have_posts() ) :
 			<div class="pj-info">
 				<div class="pj-desc"><?php the_content(); ?></div>
 
-				<a class="pj-cta" href="#lead"><?php echo esc_html( tm_t( 'Замовити подібний проєкт', 'Заказать похожий проект' ) ); ?></a>
+				<a class="pj-cta" href="#popup"><?php echo esc_html( tm_t( 'Замовити подібний проєкт', 'Заказать похожий проект' ) ); ?></a>
 				<div class="pj-cta-note"><?php echo esc_html( tm_t( 'Безкоштовна консультація та розрахунок вартості', 'Бесплатная консультация и расчёт стоимости' ) ); ?></div>
 			</div>
 

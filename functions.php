@@ -21,6 +21,7 @@ $tm_modules = array(
 	'inc/nav.php',          // меню шапки: walker і мега-меню
 	'inc/cpt-project.php',  // тип запису "Проєкти" (перенесемо з блочної теми)
 	'inc/cpt-guide.php',    // тип запису "Статті" (блог /guides/)
+	'inc/popup.php', 	  // попапи (рендер форм)
 );
 
 foreach ( $tm_modules as $tm_file ) {

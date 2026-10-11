@@ -64,6 +64,24 @@ add_action('wp_enqueue_scripts', function () {
 		}
 	}
 
+	if ( is_post_type_archive( 'guide' ) || is_tax( 'guide_category' ) ) {
+		foreach ( array( 'guides', 'sections/lead' ) as $name ) {
+			$rel = "assets/css/{$name}.css";
+			if ( file_exists( TM_DIR . '/' . $rel ) ) {
+				wp_enqueue_style( 'tm-' . str_replace( '/', '-', $name ), TM_URI . '/' . $rel, array( 'tm-base' ), tm_asset_version( $rel ) );
+			}
+		}
+	}
+
+	if ( is_singular( 'guide' ) ) {
+		foreach ( array( 'guide-single', 'sections/lead' ) as $name ) {
+			$rel = "assets/css/{$name}.css";
+			if ( file_exists( TM_DIR . '/' . $rel ) ) {
+				wp_enqueue_style( 'tm-' . str_replace( '/', '-', $name ), TM_URI . '/' . $rel, array( 'tm-base' ), tm_asset_version( $rel ) );
+			}
+		}
+	}
+
 	// Глобальний скрипт сайту.
 	$main = 'assets/js/main.js';
 	if (file_exists(TM_DIR . '/' . $main)) {

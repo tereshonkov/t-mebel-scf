@@ -1,0 +1,278 @@
+.bl-container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+/* ---- Шапка ---- */
+.bl-head {
+	padding: 64px 48px 40px;
+}
+
+.bl-head__text {
+	max-width: 640px;
+}
+
+.bl-eyebrow {
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: #8A5A2E;
+	margin-bottom: 16px;
+}
+
+.bl-h1 {
+	font-family: 'Playfair Display', serif;
+	font-weight: 500;
+	font-size: 52px;
+	line-height: 1.1;
+	margin: 0 0 16px;
+}
+
+.bl-intro {
+	font-size: 17px;
+	line-height: 1.65;
+	color: #5E4E3A;
+	margin: 0;
+}
+
+.bl-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 40px;
+}
+
+.bl-chip {
+	padding: 11px 22px;
+	border-radius: 999px;
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+	border: 1px solid rgba(42, 33, 24, .2);
+	color: #4A3B2C;
+	white-space: nowrap;
+	transition: background .2s ease;
+}
+
+.bl-chip:hover {
+	background: rgba(42, 33, 24, .06);
+	color: #2A2118;
+}
+
+.bl-chip.is-active {
+	background: #4A2E1E;
+	border-color: #4A2E1E;
+	color: #FBF4E9;
+}
+
+/* ---- Список ---- */
+.bl-list {
+	padding: 20px 48px 90px;
+}
+
+.bl-img-wrap {
+	position: relative;
+	overflow: hidden;
+	background: #EBDDC4;
+}
+
+.bl-img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform .6s cubic-bezier(.2, 0, .2, 1);
+}
+
+.bl-feat:hover .bl-img,
+.bl-card:hover .bl-img {
+	transform: scale(1.05);
+}
+
+.bl-meta {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 18px;
+	font-size: 13px;
+}
+
+.bl-badge {
+	background: #F3E1C4;
+	color: #8A5A2E;
+	padding: 6px 14px;
+	border-radius: 999px;
+	font-weight: 700;
+}
+
+.bl-read {
+	color: #8A7A66;
+}
+
+.bl-title {
+	font-family: 'Playfair Display', serif;
+	font-weight: 500;
+	font-size: 22px;
+	line-height: 1.3;
+	margin: 0 0 10px;
+	color: #2A2118;
+	transition: color .2s ease;
+}
+
+.bl-title--lg {
+	font-size: 34px;
+	line-height: 1.25;
+	margin-bottom: 16px;
+}
+
+.bl-excerpt {
+	font-size: 15px;
+	line-height: 1.7;
+	color: #6B5B48;
+	margin: 0 0 28px;
+}
+
+.bl-excerpt--sm {
+	font-size: 14px;
+	line-height: 1.6;
+	margin: 0;
+}
+
+.bl-more {
+	font-size: 15px;
+	font-weight: 700;
+	color: #8A5A2E;
+}
+
+/* Большая карточка */
+.bl-feat {
+	display: grid;
+	grid-template-columns: 1.2fr 1fr;
+	border-radius: 24px;
+	overflow: hidden;
+	background: #FFFDF9;
+	text-decoration: none;
+	color: inherit;
+	box-shadow: 0 30px 60px -34px rgba(42, 33, 24, .35);
+	margin-bottom: 72px;
+}
+
+.bl-feat__media {
+	min-height: 440px;
+}
+
+.bl-feat__body {
+	padding: 52px 48px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.bl-feat:hover .bl-title {
+	color: #8A5A2E;
+}
+
+/* Сетка */
+.bl-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 40px 28px;
+}
+
+.bl-card {
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+	color: inherit;
+}
+
+.bl-card__media {
+	height: 240px;
+	border-radius: 18px;
+	margin-bottom: 20px;
+	box-shadow: 0 16px 40px -26px rgba(42, 33, 24, .5);
+}
+
+.bl-card:hover .bl-title {
+	color: #8A5A2E;
+}
+
+.bl-meta--sm {
+	gap: 10px;
+	margin-bottom: 12px;
+}
+
+.bl-cat {
+	color: #8A5A2E;
+	font-weight: 700;
+	letter-spacing: .06em;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.bl-dot {
+	color: #C9B9A2;
+}
+
+/* Пагинация */
+.bl-pages {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 56px;
+}
+
+.bl-pages .page-numbers {
+	width: 46px;
+	height: 46px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 15px;
+	font-weight: 600;
+	text-decoration: none;
+	color: #4A3B2C;
+	border: 1px solid rgba(42, 33, 24, .15);
+}
+
+.bl-pages .page-numbers.current {
+	background: #4A2E1E;
+	color: #FBF4E9;
+	border-color: #4A2E1E;
+}
+
+.bl-pages .page-numbers.dots {
+	border: 0;
+}
+
+.bl-empty {
+	font-size: 16px;
+	color: #6B5B48;
+}
+
+/* ---- Адаптив ---- */
+@media (max-width: 960px) {
+	.bl-feat {
+		grid-template-columns: 1fr;
+	}
+
+	.bl-feat__media {
+		min-height: 280px;
+	}
+
+	.bl-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media (max-width: 760px) {
+	.bl-head { padding: 40px 20px 24px; }
+	.bl-list { padding: 12px 20px 60px; }
+	.bl-h1 { font-size: 36px; }
+	.bl-title--lg { font-size: 26px; }
+	.bl-feat__body { padding: 32px 24px; }
+	.bl-grid { grid-template-columns: 1fr; }
+}

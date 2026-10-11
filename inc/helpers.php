@@ -133,3 +133,62 @@ function tm_render_layout_from( string $layout, $post_id ): bool {
 
 	return $found;
 }
+
+/**
+ * Время чтения статьи в минутах (около 180 слов в минуту).
+ */
+function tm_read_time( $post_id = null ): int {
+	$text  = wp_strip_all_tags( get_post_field( 'post_content', $post_id ?: get_the_ID() ) );
+	$words = preg_split( '/\s+/u', trim( $text ), -1, PREG_SPLIT_NO_EMPTY );
+	return max( 1, (int) ceil( count( $words ) / 180 ) );
+}
+
+/**
+ * Название первой рубрики статьи.
+ */
+function tm_guide_cat_name( $post_id = null ): string {
+	$terms = get_the_terms( $post_id ?: get_the_ID(), 'guide_category' );
+	return ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->name : '';
+}
+
+/**
+ * HTML плашки-призыва внутри статьи. Данные берутся из полей рубрики статьи.
+ * Пустой заголовок у рубрики = плашки нет.
+ */
+function tm_guide_cta_html( $term ): string {
+	if ( ! $term ) {
+		return '';
+	}
+
+	$key   = 'term_' . $term->term_id;
+	$title = get_field( 'cta_title', $key );
+	if ( ! $title ) {
+		return '';
+	}
+
+	$text   = get_field( 'cta_text', $key );
+	$label  = get_field( 'cta_label', $key ) ?: tm_t( 'Розрахувати вартість', 'Рассчитать стоимость' );
+	$target = (int) get_field( 'cta_target', $key );
+
+	// Выбрали категорию на другом языке? Polylang вернёт её перевод на текущем.
+	if ( $target && function_exists( 'pll_get_term' ) ) {
+		$target = (int) ( pll_get_term( $target ) ?: $target );
+	}
+
+	$url = $target ? get_term_link( $target, 'project_category' ) : '';
+	if ( ! $url || is_wp_error( $url ) ) {
+		$url = get_post_type_archive_link( 'project' ); // запасной вариант: все работы
+	}
+
+	$html  = '<aside class="ar-cta">';
+	$html .= '<div class="ar-cta__text">';
+	$html .= '<div class="ar-cta__title">' . esc_html( $title ) . '</div>';
+	if ( $text ) {
+		$html .= '<div class="ar-cta__desc">' . esc_html( $text ) . '</div>';
+	}
+	$html .= '</div>';
+	$html .= '<a class="ar-cta__btn" href="' . esc_url( $url ) . '">' . esc_html( $label ) . '</a>';
+	$html .= '</aside>';
+
+	return $html;
+}
