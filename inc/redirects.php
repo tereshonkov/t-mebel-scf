@@ -1,7 +1,9 @@
 <?php
 /**
  * 301-редиректы со старого сайта (Next.js) на новые адреса.
- * Срабатывает только когда WordPress не нашёл страницу (404), поэтому рабочие страницы не трогает.
+ * Срабатывает до того, как WordPress начнёт искать страницу. Правила совпадают только со старыми адресами,
+ * которых на новом сайте нет, поэтому рабочие страницы не затрагиваются.
+ * (Ждать 404 нельзя: Polylang сам уводит /ru/about на украинскую /about/.)
  * Учтены и старые правила Next.js-сайта:
  *  - /en/... и /uk/... ведут на украинскую версию (английской больше нет, /uk/ всегда был без префикса);
  *  - /product/{id} (ещё более старый адрес) ведёт сразу на проект, без промежуточного /service/{id};
@@ -72,8 +74,8 @@ function tm_redirect_map() {
 	);
 }
 
-add_action( 'template_redirect', function () {
-	if ( ! is_404() ) {
+add_action( 'parse_request', function () {
+	if ( is_admin() || wp_doing_ajax() || ( defined( 'REST_REQUEST' ) && REST_REQUEST ) ) {
 		return;
 	}
 
@@ -117,4 +119,4 @@ add_action( 'template_redirect', function () {
 		wp_safe_redirect( home_url( $target ), 301, 'T-Mebel redirects' );
 		exit;
 	}
-}, 1 );
+}, 0 );
