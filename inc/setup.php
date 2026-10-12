@@ -23,6 +23,10 @@ add_action('after_setup_theme', function () {
 
 	// Розміри під слайдери та картки (додаємо за потреби).
 	add_image_size('tm-hero', 2400, 1350, true);
+	// Менші версії hero з тією ж пропорцією 16:9, щоб WordPress зібрав srcset.
+	add_image_size('tm-hero-sm', 800, 450, true);
+	add_image_size('tm-hero-md', 1280, 720, true);
+	add_image_size('tm-hero-lg', 1600, 900, true);
 	add_image_size('tm-card', 800, 600, true);
 });
 
@@ -30,3 +34,8 @@ add_action('after_setup_theme', function () {
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('wp_head', 'wp_generator');
+
+// Трохи вища компресія для WebP (на око майже не видно, файли легші).
+add_filter('wp_editor_set_quality', function ($quality, $mime) {
+	return 'image/webp' === $mime ? 75 : $quality;
+}, 10, 2);
