@@ -102,20 +102,20 @@ h3 {
 
 /* Строка согласия под формами CF7 */
 .form-consent {
-	margin: 12px 0 0;
-	font-size: 12px;
-	line-height: 1.5;
-	text-align: center;
-	color: inherit;
-	opacity: .7;
+  margin: 12px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  color: inherit;
+  opacity: .7;
 }
 
 .form-consent a {
-	color: inherit;
-	text-decoration: underline;
-	text-underline-offset: 2px;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .form-consent a:hover {
-	opacity: 1;
+  opacity: 1;
 }

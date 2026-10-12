@@ -1,14 +1,14 @@
 <?php
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 /**
  * Тип записи "Проекты" и таксономия "Категории проектов".
  * Имена project / project_category такие же, как в блочной теме, чтобы старые записи подхватились.
  * URL: архив /service/, категории /service/{slug}/ (как на старом сайте), проект /project/{slug}/.
  */
-add_action( 'init', function () {
+add_action('init', function () {
 
-	register_post_type( 'project', array(
+	register_post_type('project', array(
 		'labels'        => array(
 			'name'          => 'Проекты',
 			'singular_name' => 'Проект',
@@ -22,14 +22,14 @@ add_action( 'init', function () {
 		),
 		'public'        => true,
 		'has_archive'   => 'service',
-		'rewrite'       => array( 'slug' => 'project', 'with_front' => false ),
+		'rewrite'       => array('slug' => 'project', 'with_front' => false),
 		'menu_icon'     => 'dashicons-portfolio',
 		'menu_position' => 20,
-		'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'page-attributes' ),
+		'supports'      => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
 		'show_in_rest'  => true,
-	) );
+	));
 
-	register_taxonomy( 'project_category', 'project', array(
+	register_taxonomy('project_category', 'project', array(
 		'labels'            => array(
 			'name'          => 'Категории проектов',
 			'singular_name' => 'Категория',
@@ -42,19 +42,19 @@ add_action( 'init', function () {
 		'public'            => true,
 		'show_in_rest'      => true,
 		'show_admin_column' => true,
-		'rewrite'           => array( 'slug' => 'service', 'with_front' => false ),
-	) );
-} );
+		'rewrite'           => array('slug' => 'service', 'with_front' => false),
+	));
+});
 
 /**
  * Архив и категории проектов: 12 штук на страницу, по полю "Порядок", потом новые.
  */
-add_action( 'pre_get_posts', function ( $query ) {
-	if ( is_admin() || ! $query->is_main_query() ) {
+add_action('pre_get_posts', function ($query) {
+	if (is_admin() || ! $query->is_main_query()) {
 		return;
 	}
-	if ( $query->is_post_type_archive( 'project' ) || $query->is_tax( 'project_category' ) ) {
-		$query->set( 'posts_per_page', 11 );
-		$query->set( 'orderby', array( 'menu_order' => 'ASC', 'date' => 'DESC' ) );
+	if ($query->is_post_type_archive('project') || $query->is_tax('project_category')) {
+		$query->set('posts_per_page', 11);
+		$query->set('orderby', array('menu_order' => 'ASC', 'date' => 'DESC'));
 	}
-} );
+});

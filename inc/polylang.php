@@ -1,39 +1,40 @@
 <?php
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 /**
  * Робить CPT "project" перекладним (Polylang Free).
  * Таксономія project_category теж перекладна.
  */
-add_filter( 'pll_get_post_types', function ( $types ) {
+add_filter('pll_get_post_types', function ($types) {
 	$types['project'] = 'project';
 	return $types;
-} );
-add_filter( 'pll_get_taxonomies', function ( $taxonomies ) {
+});
+add_filter('pll_get_taxonomies', function ($taxonomies) {
 	$taxonomies['project_category'] = 'project_category';
 	return $taxonomies;
-} );
+});
 
 /**
  * Безпечний виклик перемикача мов для шапки.
  * Повертає масив мов або порожній масив, якщо Polylang вимкнено.
  */
-function tm_languages(): array {
-	if ( ! function_exists( 'pll_the_languages' ) ) {
+function tm_languages(): array
+{
+	if (! function_exists('pll_the_languages')) {
 		return array();
 	}
-	$langs = pll_the_languages( array( 'raw' => 1, 'hide_if_no_translation' => 0 ) );
-	return is_array( $langs ) ? $langs : array();
+	$langs = pll_the_languages(array('raw' => 1, 'hide_if_no_translation' => 0));
+	return is_array($langs) ? $langs : array();
 }
 
 /**
  * Хлебные крошки Rank Math: первый пункт ведёт на главную ТЕКУЩЕГО языка.
  * Без этого на RU-страницах "Главная" вела на украинскую /.
  */
-add_filter( 'rank_math/frontend/breadcrumb/items', function ( $crumbs ) {
-	if ( function_exists( 'pll_home_url' ) && ! empty( $crumbs[0] ) ) {
-		$crumbs[0][0] = tm_t( 'Головна', 'Главная' ); // подпись
+add_filter('rank_math/frontend/breadcrumb/items', function ($crumbs) {
+	if (function_exists('pll_home_url') && ! empty($crumbs[0])) {
+		$crumbs[0][0] = tm_t('Головна', 'Главная'); // подпись
 		$crumbs[0][1] = pll_home_url();               // ссылка
 	}
 	return $crumbs;
-} );
+});

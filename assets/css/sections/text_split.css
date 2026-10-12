@@ -41,6 +41,11 @@
 }
 
 @media (max-width: 560px) {
-	.text-split { padding: 56px 20px; }
-	.text-split__title { font-size: 28px; }
+	.text-split {
+		padding: 56px 20px;
+	}
+
+	.text-split__title {
+		font-size: 28px;
+	}
 }

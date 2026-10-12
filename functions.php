@@ -1,16 +1,17 @@
 <?php
+
 /**
  * T-Mebel Classic: точка входу. Тут лише підключення модулів з inc/.
  * Правило: у functions.php немає логіки, кожен файл в inc/ відповідає за одну річ.
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit;
 }
 
-define( 'TM_VERSION', wp_get_theme()->get( 'Version' ) );
-define( 'TM_DIR', get_template_directory() );
-define( 'TM_URI', get_template_directory_uri() );
+define('TM_VERSION', wp_get_theme()->get('Version'));
+define('TM_DIR', get_template_directory());
+define('TM_URI', get_template_directory_uri());
 
 $tm_modules = array(
 	'inc/setup.php',        // підтримка теми, меню, розміри зображень
@@ -24,11 +25,12 @@ $tm_modules = array(
 	'inc/popup.php', 	  // попапи (рендер форм)
 	'inc/cf7.php',          // CF7: згода з політикою під усіма формами
 	'inc/telegram.php',     // заявки з форм CF7 у Telegram
+	'inc/seo.php',		  // SEO: заголовки і опис архівів /service/ і /guides/
 );
 
-foreach ( $tm_modules as $tm_file ) {
+foreach ($tm_modules as $tm_file) {
 	$tm_path = TM_DIR . '/' . $tm_file;
-	if ( file_exists( $tm_path ) ) {
+	if (file_exists($tm_path)) {
 		require_once $tm_path;
 	}
 }

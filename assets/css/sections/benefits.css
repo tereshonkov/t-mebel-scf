@@ -1,14 +1,51 @@
 /* ===== ПРЕИМУЩЕСТВА: строка из 4 пунктов ===== */
-.benefits{padding:72px 48px;background:var(--c-cream)}
-.benefits__list{max-width:var(--container);margin:0 auto;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.benefits__item{display:flex;flex-direction:column;gap:8px;padding-left:20px;border-left:2px solid var(--c-gold)}
-.benefits__title{font-size:17px;font-weight:700;color:var(--c-ink)}
-.benefits__desc{font-size:14px;line-height:1.55;color:var(--c-text)}
-
-@media (max-width:900px){
-  .benefits{padding:56px 24px}
-  .benefits__list{grid-template-columns:repeat(2,1fr)}
+.benefits {
+  padding: 72px 48px;
+  background: var(--c-cream)
 }
-@media (max-width:560px){
-  .benefits__list{grid-template-columns:1fr}
+
+.benefits__list {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px
+}
+
+.benefits__item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 20px;
+  border-left: 2px solid var(--c-gold)
+}
+
+.benefits__title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--c-ink)
+}
+
+.benefits__desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--c-text)
+}
+
+@media (max-width:900px) {
+  .benefits {
+    padding: 56px 24px
+  }
+
+  .benefits__list {
+    grid-template-columns: repeat(2, 1fr)
+  }
+}
+
+@media (max-width:560px) {
+  .benefits__list {
+    grid-template-columns: 1fr
+  }
 }

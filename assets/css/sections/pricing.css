@@ -2,7 +2,7 @@
 .pricing {
     position: relative;
     isolation: isolate;
-    min-height:max(640px,85vh);
+    min-height: max(640px, 85vh);
     display: flex;
     align-items: center;
     justify-content: center;
