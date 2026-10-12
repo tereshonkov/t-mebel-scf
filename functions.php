@@ -26,6 +26,7 @@ $tm_modules = array(
 	'inc/cf7.php',          // CF7: згода з політикою під усіма формами
 	'inc/telegram.php',     // заявки з форм CF7 у Telegram
 	'inc/seo.php',		  // SEO: заголовки і опис архівів /service/ і /guides/
+	'inc/redirects.php',	  // редіректи для старих URL
 );
 
 foreach ($tm_modules as $tm_file) {
