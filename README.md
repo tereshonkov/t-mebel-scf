@@ -12,10 +12,13 @@
 ```
 t-mebel-scf/
   style.css                       лише заголовок теми
+  screenshot.png                  превью теми в адмінці
+  .gitignore
   functions.php                   тільки підключення модулів з inc/ ($tm_modules)
   header.php, footer.php          каркас сторінки
   front-page.php                  головна: секції
   page.php                        звичайна сторінка: секції або the_content()
+  template-text.php               шаблон "Текстова сторінка" (політика та подібні)
   index.php, 404.php              запасні шаблони
   archive-project.php             архів проєктів (/service/)
   taxonomy-project_category.php   рубрики проєктів (/service/{рубрика}/)
@@ -54,14 +57,16 @@ t-mebel-scf/
 
   assets/
     css/base.css                  токени (кольори, шрифти, відступи) і база
+    css/fonts.css                 @font-face для локальних шрифтів
     css/header.css, footer.css, buttons.css, popup.css
-    css/project.css, guides.css, guide-single.css, text-page.css, 404.css
+    css/project.css, works.css    сторінка проєкту, архів і рубрики проєктів
+    css/guides.css, guide-single.css, text-page.css, 404.css
     css/sections/{layout}.css     стилі секції (підключаються лише там, де секція є)
+    fonts/                        Jost і Playfair Display (woff2, локально)
     js/main.js, popup.js, project.js
-    js/sections/{layout}.js
+    js/sections/{layout}.js       featured, hero, partners
 
   acf-json/                       групи полів SCF у JSON (під git)
-  languages/
 ```
 
 ## Правила
