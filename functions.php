@@ -29,6 +29,7 @@ $tm_modules = array(
 	'inc/redirects.php',	  // редіректи для старих URL
 	'inc/search.php',		// пошук по сайту відключений, щоб не показувати служебні тексти сторінок
 	'inc/security.php',		// безпека: не віддаємо список користувачів (і їх логіни) стороннім
+	'inc/admin-home.php',	// адмінка: замість Консолі відкриваємо статистику Koko Analytics
 );
 
 foreach ($tm_modules as $tm_file) {
