@@ -30,7 +30,7 @@ $meta = implode(' · ', array_filter(array(
 		<?php if ($tag) : ?>
 			<span class="wk-tag"><?php echo esc_html($tag); ?></span>
 		<?php endif; ?>
-		<h2 class="wk-title"><?php the_title(); ?></h2>
+		<h3 class="wk-title"><?php the_title(); ?></h3>
 		<?php if ($meta) : ?>
 			<span class="wk-meta"><?php echo esc_html($meta); ?></span>
 		<?php endif; ?>
