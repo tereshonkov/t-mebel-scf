@@ -14,7 +14,7 @@ $form_id = trim((string) tm_opt('popup_form'));
 
 		<div class="pp-view" data-pp-form>
 			<div class="pp-badge"><?php echo esc_html(tm_t('Індивідуальний розрахунок', 'Индивидуальный расчёт')); ?></div>
-			<h2 id="pp-title" class="pp-title"><?php echo esc_html(tm_t('Залиште контакти', 'Оставьте контакты')); ?></h2>
+			<div id="pp-title" class="pp-title"><?php echo esc_html(tm_t('Залиште контакти', 'Оставьте контакты')); ?></div>
 			<p class="pp-sub"><?php echo esc_html(tm_t('Розрахуємо вартість під ваш простір і безкоштовно проконсультуємо', 'Рассчитаем стоимость под ваше пространство и бесплатно проконсультируем')); ?></p>
 
 			<?php echo do_shortcode('[contact-form-7 id="' . esc_attr($form_id) . '"]'); ?>
@@ -24,7 +24,7 @@ $form_id = trim((string) tm_opt('popup_form'));
 
 		<div class="pp-view pp-done" data-pp-done hidden>
 			<div class="pp-check" aria-hidden="true">✓</div>
-			<h2 class="pp-title"><?php echo esc_html(tm_t('Дякуємо!', 'Спасибо!')); ?></h2>
+			<div class="pp-title"><?php echo esc_html(tm_t('Дякуємо!', 'Спасибо!')); ?></div>
 			<p class="pp-sub"><?php echo esc_html(tm_t('Заявку отримано. Менеджер зателефонує протягом 15 хвилин.', 'Заявка получена. Менеджер позвонит в течение 15 минут.')); ?></p>
 			<button type="button" class="pp-back" data-pp-close><?php echo esc_html(tm_t('Повернутись на сайт', 'Вернуться на сайт')); ?></button>
 		</div>
