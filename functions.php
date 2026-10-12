@@ -31,6 +31,7 @@ $tm_modules = array(
 	'inc/security.php',		// безпека: не віддаємо список користувачів (і їх логіни) стороннім
 	'inc/admin-home.php',	// адмінка: замість Консолі відкриваємо статистику Koko Analytics
 	'inc/editor-access.php', // права ролі «Редактор» для роботи з сайтом
+	'inc/tracking.php',		// Google Ads и GA4: подключение тега и события (заявка, клик по телефону)
 );
 
 foreach ($tm_modules as $tm_file) {
