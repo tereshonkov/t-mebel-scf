@@ -32,6 +32,7 @@ $tm_modules = array(
 	'inc/admin-home.php',	// адмінка: замість Консолі відкриваємо статистику Koko Analytics
 	'inc/editor-access.php', // права ролі «Редактор» для роботи з сайтом
 	'inc/tracking.php',		// Google Ads и GA4: подключение тега и события (заявка, клик по телефону)
+	'inc/css-bundle.php'    // Склеює всі стилі теми (tm-*) у один файл, щоб замість 16 запитів був 1.
 );
 
 foreach ($tm_modules as $tm_file) {
