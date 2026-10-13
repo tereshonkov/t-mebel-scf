@@ -1,0 +1,159 @@
+/* ===== ПЛИТКИ ФОРМ КУХНИ НА ГЛАВНОЙ (по макету) ===== */
+.ct {
+    padding: 80px 48px 0;
+    background: var(--c-cream)
+}
+
+.ct__inner {
+    max-width: 1200px;
+    margin: 0 auto
+}
+
+.ct__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 28px
+}
+
+.ct__eyebrow {
+    margin-bottom: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--c-accent)
+}
+
+.ct__title {
+    margin: 0;
+    font-size: 34px;
+    line-height: 1.2
+}
+
+.ct__text {
+    max-width: 360px;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--c-text)
+}
+
+.ct__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px
+}
+
+.ct__card {
+    position: relative;
+    display: block;
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #2A2118;
+    text-decoration: none;
+    box-shadow: 0 18px 40px -28px rgba(42, 33, 24, .55)
+}
+
+.ct__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s cubic-bezier(.2, 0, .2, 1)
+}
+
+.ct__card:hover .ct__img {
+    transform: scale(1.06)
+}
+
+.ct__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20, 16, 10, .05) 30%, rgba(20, 16, 10, .85) 100%)
+}
+
+.ct__body {
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px
+}
+
+.ct__name {
+    font-family: var(--f-serif);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--c-cream)
+}
+
+.ct__price {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--c-gold)
+}
+
+.ct__go {
+    align-self: flex-start;
+    margin-top: 10px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(251, 244, 233, .16);
+    color: var(--c-cream);
+    font-size: 13px;
+    font-weight: 700;
+    transition: background .2s, color .2s
+}
+
+.ct__card:hover .ct__go,
+.ct__card:focus-visible .ct__go {
+    background: var(--c-gold);
+    color: var(--c-ink)
+}
+
+.ct__card:focus-visible {
+    outline: 2px solid var(--c-gold);
+    outline-offset: 3px
+}
+
+@media (max-width:960px) {
+    .ct__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .ct__card {
+        height: 240px
+    }
+}
+
+@media (max-width:760px) {
+    .ct {
+        padding: 56px 16px 0
+    }
+
+    .ct__title {
+        font-size: 28px
+    }
+}
+
+@media (max-width:480px) {
+    .ct__card {
+        height: 200px
+    }
+
+    .ct__name {
+        font-size: 20px
+    }
+
+    .ct__body {
+        left: 16px;
+        right: 16px
+    }
+}

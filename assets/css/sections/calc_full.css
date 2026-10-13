@@ -1,0 +1,535 @@
+/* ===== КАЛЬКУЛЯТОР КУХНИ (полная страница, по макету) ===== */
+.cl-hero {
+    padding: 56px 48px 40px;
+    background: var(--c-cream)
+}
+
+.cl-inner {
+    max-width: 1200px;
+    margin: 0 auto
+}
+
+.cl-hero .crumbs,
+.cl-hero .rank-math-breadcrumb {
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: var(--c-muted)
+}
+
+.cl-hero .crumbs a,
+.cl-hero .rank-math-breadcrumb a {
+    color: var(--c-muted);
+    text-decoration: none
+}
+
+.cl-hero .crumbs span[aria-hidden] {
+    margin: 0 8px
+}
+
+.cl-hero .crumbs [aria-current] {
+    color: #4A3B2C
+}
+
+.cl-hero__text {
+    max-width: 720px
+}
+
+.cl-eyebrow {
+    margin-bottom: 14px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--c-accent)
+}
+
+.cl-h1 {
+    margin: 0 0 16px;
+    font-size: 48px;
+    line-height: 1.15;
+    color: var(--c-ink)
+}
+
+.cl-intro {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.65;
+    color: #5E4E3A;
+    text-wrap: pretty
+}
+
+.cl-main {
+    padding: 0 48px 100px;
+    background: var(--c-cream)
+}
+
+.cl-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 400px;
+    gap: 40px;
+    align-items: start
+}
+
+.cl-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 0
+}
+
+.cl-step {
+    padding: 30px 32px;
+    border: 1px solid rgba(42, 33, 24, .05);
+    border-radius: 22px;
+    background: var(--c-white);
+    box-shadow: 0 16px 40px -30px rgba(42, 33, 24, .4)
+}
+
+.cl-step-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px
+}
+
+.cl-num {
+    flex: none;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid var(--c-gold-line);
+    border-radius: 50%;
+    font-family: var(--f-serif);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--c-accent)
+}
+
+.cl-step-title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 500
+}
+
+/* Карточки выбора: настоящие radio/checkbox, оформленные как карточки */
+.cl-opts {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px
+}
+
+.cl-opts--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr))
+}
+
+.cl-opts--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+}
+
+.cl-pick {
+    position: relative;
+    display: block;
+    cursor: pointer
+}
+
+.cl-pick input {
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    margin: 0;
+    cursor: pointer
+}
+
+.cl-opt {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: 100%;
+    padding: 16px 16px 14px;
+    border: 1.5px solid rgba(42, 33, 24, .12);
+    border-radius: 16px;
+    background: var(--c-cream);
+    color: var(--c-ink);
+    transition: border-color .2s, background .2s, box-shadow .2s
+}
+
+.cl-pick:hover .cl-opt {
+    border-color: var(--c-gold-line)
+}
+
+.cl-pick input:checked+.cl-opt {
+    border-color: var(--c-brown);
+    background: var(--c-white);
+    box-shadow: 0 0 0 3px rgba(231, 184, 118, .35)
+}
+
+.cl-pick input:focus-visible+.cl-opt,
+.cl-pick input:focus-visible+.cl-toggle {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 2px
+}
+
+.cl-opt-title {
+    font-size: 15px;
+    font-weight: 700
+}
+
+.cl-opt-sub {
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--c-text)
+}
+
+.cl-ico {
+    display: block;
+    width: 100%;
+    height: 56px;
+    margin-bottom: 8px
+}
+
+.cl-sw {
+    display: block;
+    width: 100%;
+    height: 64px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 1px rgba(42, 33, 24, .1)
+}
+
+/* Длина */
+.cl-len-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 8px
+}
+
+.cl-len-hint {
+    font-size: 14px;
+    color: var(--c-text)
+}
+
+.cl-len {
+    font-family: var(--f-serif);
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--c-brown)
+}
+
+.cl-range {
+    width: 100%;
+    height: 28px;
+    cursor: pointer;
+    accent-color: var(--c-brown)
+}
+
+.cl-scale {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--c-muted)
+}
+
+/* Дополнительно */
+.cl-extras {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.cl-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    padding: 16px 18px;
+    border: 1.5px solid rgba(42, 33, 24, .12);
+    border-radius: 14px;
+    background: var(--c-cream);
+    font-size: 15px;
+    color: var(--c-ink);
+    transition: border-color .2s, background .2s
+}
+
+.cl-pick:hover .cl-toggle {
+    border-color: var(--c-gold-line)
+}
+
+.cl-pick input:checked+.cl-toggle {
+    border-color: var(--c-brown);
+    background: var(--c-white)
+}
+
+.cl-toggle-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px
+}
+
+.cl-toggle-title {
+    font-weight: 600
+}
+
+.cl-toggle-sub {
+    font-size: 13px;
+    color: var(--c-text)
+}
+
+.cl-check {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid rgba(42, 33, 24, .3);
+    border-radius: 7px;
+    font-size: 13px;
+    color: transparent
+}
+
+.cl-pick input:checked+.cl-toggle .cl-check {
+    background: var(--c-brown);
+    border-color: var(--c-brown);
+    color: var(--c-cream)
+}
+
+/* Итоговая карточка */
+.cl-summary {
+    position: sticky;
+    top: 110px
+}
+
+.cl-card {
+    padding: 32px 30px;
+    border: 1px solid rgba(42, 33, 24, .06);
+    border-radius: 24px;
+    background: var(--c-white);
+    box-shadow: 0 30px 60px -34px rgba(42, 33, 24, .45)
+}
+
+.cl-card-label {
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--c-accent)
+}
+
+.cl-price {
+    margin-bottom: 6px;
+    font-family: var(--f-serif);
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--c-ink);
+    transition: opacity .2s
+}
+
+.cl-price.is-loading {
+    opacity: .5
+}
+
+.cl-per {
+    margin-bottom: 22px;
+    font-size: 13px;
+    color: var(--c-muted)
+}
+
+.cl-rows {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    border-top: 1px solid rgba(42, 33, 24, .1)
+}
+
+.cl-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(42, 33, 24, .08);
+    font-size: 14px
+}
+
+.cl-row span {
+    color: var(--c-muted)
+}
+
+.cl-row b {
+    font-weight: 600;
+    text-align: right
+}
+
+.cl-lead {
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.cl-lead-title {
+    font-size: 15px;
+    font-weight: 600
+}
+
+.cl-input {
+    width: 100%;
+    padding: 15px 18px;
+    border: 1px solid rgba(42, 33, 24, .14);
+    border-radius: 12px;
+    background: var(--c-cream);
+    color: var(--c-ink);
+    font: 400 15px/1.3 var(--f-sans);
+    outline: none
+}
+
+.cl-input:focus {
+    border-color: var(--c-gold-line);
+    box-shadow: 0 0 0 4px rgba(231, 184, 118, .22)
+}
+
+.cl-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0
+}
+
+.cl-send {
+    padding: 17px 24px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--c-gold);
+    color: var(--c-ink);
+    font: 700 16px/1 var(--f-sans);
+    cursor: pointer;
+    transition: background .2s
+}
+
+.cl-send:hover {
+    background: #D9A75F
+}
+
+.cl-fine {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #A0917C;
+    text-align: center
+}
+
+.cl-thanks {
+    padding: 8px 0;
+    text-align: center
+}
+
+.cl-thanks-ico {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--c-cream-2);
+    font-size: 24px;
+    color: var(--c-accent)
+}
+
+.cl-thanks-title {
+    margin-bottom: 8px;
+    font-family: var(--f-serif);
+    font-size: 22px
+}
+
+.cl-thanks-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--c-text)
+}
+
+.cl-error {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #B3412C
+}
+
+.cl-lead[hidden],
+.cl-thanks[hidden],
+.cl-error[hidden] {
+    display: none
+}
+
+@media (max-width:1024px) {
+    .cl-layout {
+        grid-template-columns: 1fr
+    }
+
+    .cl-summary {
+        position: static
+    }
+}
+
+@media (max-width:960px) {
+    .cl-opts {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .cl-opts--3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+}
+
+@media (max-width:760px) {
+
+    .cl-hero,
+    .cl-main {
+        padding-left: 16px;
+        padding-right: 16px
+    }
+
+    .cl-hero {
+        padding-top: 32px
+    }
+
+    .cl-main {
+        padding-bottom: 72px
+    }
+
+    .cl-h1 {
+        font-size: 34px
+    }
+
+    .cl-step {
+        padding: 24px 20px
+    }
+}
+
+@media (max-width:420px) {
+    .cl-opt {
+        padding: 12px 12px 10px
+    }
+
+    .cl-opt-title {
+        font-size: 14px
+    }
+
+    .cl-opt-sub {
+        font-size: 12px
+    }
+
+    .cl-ico {
+        height: 44px
+    }
+
+    .cl-sw {
+        height: 48px
+    }
+}
