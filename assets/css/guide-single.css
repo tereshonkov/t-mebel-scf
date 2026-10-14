@@ -504,6 +504,8 @@
 	margin: 36px 0;
 	overflow-x: auto;
 	-webkit-overflow-scrolling: touch;
+	max-width: 100%;    /* добавить */
+	min-width: 0;       /* добавить */
 }
 
 .wp-block-table table {
@@ -555,14 +557,19 @@
 	color: #6b6358;
 }
 
-/* Телефон: ужимаем отступы, чтобы помещалось больше */
+/* Телефон: таблица сжимается по ширине экрана, прокрутки нет */
 @media (max-width: 600px) {
-	.wp-block-table table {
-		font-size: 15px;
+	.wp-block-table table,
+	.wp-block-table.has-fixed-layout table {
+		min-width: 0;
+		table-layout: auto;
+		font-size: 14px;
 	}
 
 	.wp-block-table thead th,
 	.wp-block-table td {
-		padding: 11px 12px;
+		padding: 10px 10px;
+		word-break: break-word;
+		overflow-wrap: anywhere;
 	}
 }
