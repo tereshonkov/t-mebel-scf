@@ -8,26 +8,25 @@
     const addCopies = (items) => {
       items.forEach((item) => {
         const copy = item.cloneNode(true);
-        copy.setAttribute("aria-hidden", "true");
-        const img = copy.querySelector("img");
-        if (img) img.alt = "";
+        copy.setAttribute('aria-hidden', 'true');
+        const img = copy.querySelector('img');
+        if (img) img.alt = '';
         track.appendChild(copy);
       });
     };
 
     // Логотипов мало (3), а экран широкий: дублируем, пока одна половина не станет шире экрана.
     let guard = 0;
-    while (track.scrollWidth < box.offsetWidth && guard++ < 20)
-      addCopies(original);
+    while (track.scrollWidth < box.offsetWidth && guard++ < 20) addCopies(original);
 
     // Вторая половина: точная копия первой.
     addCopies([...track.children]);
-    track.classList.add("is-running");
+    track.classList.add('is-running');
   };
 
-  const run = () => document.querySelectorAll(".marquee-track").forEach(init);
+  const run = () => document.querySelectorAll('.marquee-track').forEach(init);
 
   // Ждём загрузки картинок: до неё ширина ленты неизвестна.
-  if (document.readyState === "complete") run();
-  else window.addEventListener("load", run);
+  if (document.readyState === 'complete') run();
+  else window.addEventListener('load', run);
 })();

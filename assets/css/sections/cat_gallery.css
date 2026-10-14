@@ -23,13 +23,8 @@
 	box-shadow: 0 16px 40px -26px rgba(42, 33, 24, .5);
 }
 
-.kg-card.tall {
-	grid-row: span 2;
-}
-
-.kg-card.wide {
-	grid-column: span 2;
-}
+.kg-card.tall { grid-row: span 2; }
+.kg-card.wide { grid-column: span 2; }
 
 .kg-img {
 	width: 100%;
@@ -44,24 +39,16 @@
 }
 
 @media (max-width: 900px) {
-	.cat-gallery {
-		padding: 0 20px 60px;
-	}
-
+	.cat-gallery { padding: 0 20px 60px; }
 	.cat-gallery__grid {
 		grid-template-columns: repeat(2, 1fr);
 		grid-auto-rows: 200px;
 		gap: 12px;
 	}
-
 	/* на 2 колонках высокие карточки дают дыры, поэтому делаем их обычными */
-	.kg-card.tall {
-		grid-row: span 1;
-	}
+	.kg-card.tall { grid-row: span 1; }
 }
 
 @media (max-width: 560px) {
-	.cat-gallery__grid {
-		grid-auto-rows: 160px;
-	}
+	.cat-gallery__grid { grid-auto-rows: 160px; }
 }

@@ -1,19 +1,18 @@
 <?php
-
 /**
  * Подвал: логотип, слоган, кнопка звонка, меню, соцсети, копирайт.
  * На телефоне снизу экрана липкая панель "Позвонить / Написать".
  * Данные: страница опций (tm_opt) и меню "Меню футера".
  */
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
-$f_title   = tm_opt('footer_title');
-$f_accent  = tm_opt('footer_accent');
-$f_text    = tm_opt('footer_text');
-$phone     = tm_opt('phone');
-$tel       = $phone ? 'tel:' . preg_replace('/[^+\d]/', '', $phone) : '';
-$messenger = tm_opt('messenger_url');
-$socials   = tm_opt('socials', array());
+$f_title   = tm_opt( 'footer_title' );
+$f_accent  = tm_opt( 'footer_accent' );
+$f_text    = tm_opt( 'footer_text' );
+$phone     = tm_opt( 'phone' );
+$tel       = $phone ? 'tel:' . preg_replace( '/[^+\d]/', '', $phone ) : '';
+$messenger = tm_opt( 'messenger_url' );
+$socials   = tm_opt( 'socials', array() );
 $privacy   = tm_privacy_url();
 ?>
 <footer class="site-footer">
@@ -22,61 +21,61 @@ $privacy   = tm_privacy_url();
 		<div class="site-footer__top">
 
 			<div class="foot-brand">
-				<a class="site-logo" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php bloginfo('name'); ?>">
+				<a class="site-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php bloginfo( 'name' ); ?>">
 					<?php
-					if (has_custom_logo()) {
-						echo wp_get_attachment_image(get_theme_mod('custom_logo'), 'medium', false, array('class' => 'site-logo__img', 'loading' => 'lazy'));
+					if ( has_custom_logo() ) {
+						echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'medium', false, array( 'class' => 'site-logo__img', 'loading' => 'lazy' ) );
 					} else {
-						bloginfo('name');
+						bloginfo( 'name' );
 					}
 					?>
 				</a>
 
-				<?php if ($f_title || $f_accent) : ?>
+				<?php if ( $f_title || $f_accent ) : ?>
 					<p class="foot-title">
-						<?php echo esc_html($f_title); ?>
-						<?php if ($f_accent) : ?><em><?php echo esc_html($f_accent); ?></em><?php endif; ?>
+						<?php echo esc_html( $f_title ); ?>
+						<?php if ( $f_accent ) : ?><em><?php echo esc_html( $f_accent ); ?></em><?php endif; ?>
 					</p>
 				<?php endif; ?>
 
-				<?php if ($f_text) : ?>
-					<p class="foot-text"><?php echo esc_html($f_text); ?></p>
+				<?php if ( $f_text ) : ?>
+					<p class="foot-text"><?php echo esc_html( $f_text ); ?></p>
 				<?php endif; ?>
 
-				<?php if ($tel) : ?>
-					<a class="btn btn--gold" href="<?php echo esc_url($tel); ?>"><?php echo esc_html(tm_t('+380671496741', '+380671496741')); ?></a>
+				<?php if ( $tel ) : ?>
+					<a class="btn btn--gold" href="<?php echo esc_url( $tel ); ?>"><?php echo esc_html( tm_t( '+380671496741', '+380671496741' ) ); ?></a>
 				<?php endif; ?>
 			</div>
 
 			<div class="foot-cols">
-				<?php if (has_nav_menu('footer')) : ?>
-					<nav class="foot-col" aria-label="<?php echo esc_attr(tm_t('Навігація', 'Навигация')); ?>">
-						<p class="foot-label"><?php echo esc_html(tm_t('Навігація', 'Навигация')); ?></p>
+				<?php if ( has_nav_menu( 'footer' ) ) : ?>
+					<nav class="foot-col" aria-label="<?php echo esc_attr( tm_t( 'Навігація', 'Навигация' ) ); ?>">
+						<p class="foot-label"><?php echo esc_html( tm_t( 'Навігація', 'Навигация' ) ); ?></p>
 						<?php
-						wp_nav_menu(array(
+						wp_nav_menu( array(
 							'theme_location' => 'footer',
 							'container'      => false,
 							'menu_class'     => 'foot-links',
 							'depth'          => 1,
 							'fallback_cb'    => false,
-						));
+						) );
 						?>
 					</nav>
 				<?php endif; ?>
 
-				<?php if ($socials && is_array($socials)) : ?>
+				<?php if ( $socials && is_array( $socials ) ) : ?>
 					<div class="foot-col">
-						<p class="foot-label"><?php echo esc_html(tm_t('Ми в мережах', 'Мы в сетях')); ?></p>
+						<p class="foot-label"><?php echo esc_html( tm_t( 'Ми в мережах', 'Мы в сетях' ) ); ?></p>
 						<ul class="foot-links">
-							<?php foreach ($socials as $s) : ?>
+							<?php foreach ( $socials as $s ) : ?>
 								<?php
 								// Поле url может быть типа "URL" (строка) или "Ссылка" (массив): поддерживаем оба.
-								$s_url = is_array($s['url'] ?? null) ? ($s['url']['url'] ?? '') : ($s['url'] ?? '');
-								if (! $s_url || empty($s['label'])) {
+								$s_url = is_array( $s['url'] ?? null ) ? ( $s['url']['url'] ?? '' ) : ( $s['url'] ?? '' );
+								if ( ! $s_url || empty( $s['label'] ) ) {
 									continue;
 								}
 								?>
-								<li><a href="<?php echo esc_url($s_url); ?>" target="_blank" rel="noopener"><?php echo esc_html($s['label']); ?></a></li>
+								<li><a href="<?php echo esc_url( $s_url ); ?>" target="_blank" rel="noopener"><?php echo esc_html( $s['label'] ); ?></a></li>
 							<?php endforeach; ?>
 						</ul>
 					</div>
@@ -86,22 +85,22 @@ $privacy   = tm_privacy_url();
 		</div>
 
 		<p class="foot-copy">
-			<span>&copy; <?php echo esc_html(gmdate('Y')); ?> T-MEBEL. <?php echo esc_html(tm_t('Всі права захищені', 'Все права защищены')); ?></span>
-			<?php if ($privacy) : ?>
-				<a class="foot-privacy" href="<?php echo esc_url($privacy); ?>"><?php echo esc_html(tm_t('Політика конфіденційності', 'Политика конфиденциальности')); ?></a>
+			<span>&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> T-MEBEL. <?php echo esc_html( tm_t( 'Всі права захищені', 'Все права защищены' ) ); ?></span>
+			<?php if ( $privacy ) : ?>
+				<a class="foot-privacy" href="<?php echo esc_url( $privacy ); ?>"><?php echo esc_html( tm_t( 'Політика конфіденційності', 'Политика конфиденциальности' ) ); ?></a>
 			<?php endif; ?>
 		</p>
 
 	</div>
 </footer>
 
-<?php if ($tel || $messenger) : ?>
+<?php if ( $tel || $messenger ) : ?>
 	<div class="sticky-cta">
-		<?php if ($tel) : ?>
-			<a class="sticky-cta__call" href="<?php echo esc_url($tel); ?>"><?php echo esc_html(tm_t('Зателефонувати', 'Позвонить')); ?></a>
+		<?php if ( $tel ) : ?>
+			<a class="sticky-cta__call" href="<?php echo esc_url( $tel ); ?>"><?php echo esc_html( tm_t( 'Зателефонувати', 'Позвонить' ) ); ?></a>
 		<?php endif; ?>
-		<?php if ($messenger) : ?>
-			<a class="sticky-cta__msg" href="<?php echo esc_url($messenger); ?>" target="_blank" rel="noopener"><?php echo esc_html(tm_t('Написати', 'Написать')); ?></a>
+		<?php if ( $messenger ) : ?>
+			<a class="sticky-cta__msg" href="<?php echo esc_url( $messenger ); ?>" target="_blank" rel="noopener"><?php echo esc_html( tm_t( 'Написати', 'Написать' ) ); ?></a>
 		<?php endif; ?>
 	</div>
 <?php endif; ?>

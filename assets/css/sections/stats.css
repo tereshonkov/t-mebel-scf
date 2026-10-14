@@ -41,11 +41,6 @@
 }
 
 @media (max-width: 560px) {
-	.stats-band {
-		padding: 48px 20px;
-	}
-
-	.stats-band__value {
-		font-size: 38px;
-	}
+	.stats-band { padding: 48px 20px; }
+	.stats-band__value { font-size: 38px; }
 }

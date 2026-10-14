@@ -163,15 +163,7 @@
 }
 
 @media (max-width: 560px) {
-	.price-form {
-		padding: 60px 20px;
-	}
-
-	.price-form__title {
-		font-size: 26px;
-	}
-
-	.price-form__card {
-		padding: 32px 22px;
-	}
+	.price-form { padding: 60px 20px; }
+	.price-form__title { font-size: 26px; }
+	.price-form__card { padding: 32px 22px; }
 }

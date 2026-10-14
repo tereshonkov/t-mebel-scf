@@ -1,155 +1,34 @@
 /* ===== Подвал ===== */
-.site-footer {
-	padding: 64px 48px 32px;
-	background: var(--c-dark);
-	color: #E0D0BB
-}
+.site-footer{padding:64px 48px 32px;background:var(--c-dark);color:#E0D0BB}
+.site-footer__inner{max-width:var(--container);margin:0 auto}
+.site-footer__top{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(251,244,233,.1)}
 
-.site-footer__inner {
-	max-width: var(--container);
-	margin: 0 auto
-}
+.foot-brand{max-width:400px}
+.foot-brand .site-logo{margin-bottom:28px}
+.foot-title{margin:0 0 14px;font-family:var(--f-serif);font-size:26px;font-weight:500;line-height:1.3;color:var(--c-cream)}
+.foot-title em{font-style:italic;color:var(--c-gold)}
+.foot-text{margin:0 0 28px;font-size:14px;line-height:1.6;color:#A0917C}
 
-.site-footer__top {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: flex-start;
-	justify-content: space-between;
-	gap: 48px;
-	padding-bottom: 40px;
-	border-bottom: 1px solid rgba(251, 244, 233, .1)
-}
-
-.foot-brand {
-	max-width: 400px
-}
-
-.foot-brand .site-logo {
-	margin-bottom: 28px
-}
-
-.foot-title {
-	margin: 0 0 14px;
-	font-family: var(--f-serif);
-	font-size: 26px;
-	font-weight: 500;
-	line-height: 1.3;
-	color: var(--c-cream)
-}
-
-.foot-title em {
-	font-style: italic;
-	color: var(--c-gold)
-}
-
-.foot-text {
-	margin: 0 0 28px;
-	font-size: 14px;
-	line-height: 1.6;
-	color: #A0917C
-}
-
-.foot-cols {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 64px
-}
-
-.foot-label {
-	margin: 0 0 16px;
-	font-size: 12px;
-	font-weight: 700;
-	letter-spacing: .12em;
-	text-transform: uppercase;
-	color: var(--c-muted)
-}
-
-.foot-links {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	font-size: 15px
-}
-
-.foot-links a {
-	color: #E4DACB;
-	text-decoration: none;
-	transition: color .2s
-}
-
-.foot-links a:hover {
-	color: var(--c-gold)
-}
-
-.foot-copy {
-	margin: 0;
-	padding-top: 24px;
-	font-size: 13px;
-	color: var(--c-muted)
-}
+.foot-cols{display:flex;flex-wrap:wrap;gap:64px}
+.foot-label{margin:0 0 16px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c-muted)}
+.foot-links{display:flex;flex-direction:column;gap:12px;margin:0;padding:0;list-style:none;font-size:15px}
+.foot-links a{color:#E4DACB;text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--c-gold)}
+.foot-copy{margin:0;padding-top:24px;font-size:13px;color:var(--c-muted)}
 
 /* ===== Липкая панель на телефоне ===== */
-.sticky-cta {
-	display: none
-}
+.sticky-cta{display:none}
 
-@media (max-width:760px) {
-	.site-footer {
-		padding: 48px 24px 100px
-	}
+@media (max-width:760px){
+  .site-footer{padding:48px 24px 100px}
+  .site-footer__top{gap:36px}
+  .foot-cols{gap:40px}
 
-	.site-footer__top {
-		gap: 36px
-	}
-
-	.foot-cols {
-		gap: 40px
-	}
-
-	.sticky-cta {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 10px;
-		position: fixed;
-		left: 12px;
-		right: 12px;
-		bottom: 12px;
-		z-index: 50;
-		padding: 10px;
-		border-radius: 18px;
-		background: rgba(42, 33, 24, .96);
-		-webkit-backdrop-filter: blur(10px);
-		backdrop-filter: blur(10px);
-		box-shadow: 0 16px 40px -12px rgba(20, 16, 10, .6)
-	}
-
-	.sticky-cta a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 14px 12px;
-		border-radius: 12px;
-		font-size: 15px;
-		font-weight: 700;
-		text-decoration: none
-	}
-
-	.sticky-cta__call {
-		background: var(--c-gold);
-		color: var(--c-ink)
-	}
-
-	.sticky-cta__msg {
-		background: rgba(251, 244, 233, .14);
-		color: var(--c-cream)
-	}
-
-	body.menu-open .sticky-cta {
-		display: none
-	}
+  .sticky-cta{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:12px;right:12px;bottom:12px;z-index:50;padding:10px;border-radius:18px;background:rgba(42,33,24,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 16px 40px -12px rgba(20,16,10,.6)}
+  .sticky-cta a{display:flex;align-items:center;justify-content:center;padding:14px 12px;border-radius:12px;font-size:15px;font-weight:700;text-decoration:none}
+  .sticky-cta__call{background:var(--c-gold);color:var(--c-ink)}
+  .sticky-cta__msg{background:rgba(251,244,233,.14);color:var(--c-cream)}
+  body.menu-open .sticky-cta{display:none}
 }
 
 /* Копирайт слева, политика справа */

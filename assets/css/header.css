@@ -332,7 +332,7 @@ body.admin-bar:not(.home) .site-header {
 }
 
 /* Планшет і мобільний (бургер додамо наступним кроком) */
-@media (max-width:1024px) {
+@media (max-width:1224px) {
     .site-header {
         grid-template-columns: 1fr auto;
         top: 20px;
@@ -387,7 +387,7 @@ body.admin-bar:not(.home) .site-header {
     display: none
 }
 
-@media (max-width:1024px) {
+@media (max-width:1224px) {
     .burger {
         display: inline-flex
     }
