@@ -44,7 +44,7 @@
 	color: #8A7A66;
 }
 
-.ar-meta > * {
+.ar-meta>* {
 	white-space: nowrap;
 }
 
@@ -131,7 +131,7 @@
 	color: #4A3B2C;
 }
 
-.ar-body > p:first-child {
+.ar-body>p:first-child {
 	font-size: 20px;
 	line-height: 1.7;
 	color: #2A2118;
@@ -385,17 +385,52 @@
 }
 
 @media (max-width: 760px) {
-	.ar-head { padding: 36px 20px 28px; }
-	.ar-h1 { font-size: 32px; }
-	.ar-hero { padding: 0 20px 48px; }
-	.ar-hero__box { height: 280px; border-radius: 20px; }
-	.ar-main { padding: 0 20px 64px; }
-	.ar-body { font-size: 16px; }
-	.ar-body > p:first-child { font-size: 18px; }
-	.ar-body h2 { font-size: 26px; margin-top: 44px; }
-	.ar-body blockquote { font-size: 20px; padding-left: 20px; }
-	.ar-related-sec { padding: 60px 20px; }
-	.ar-related { grid-template-columns: 1fr; }
+	.ar-head {
+		padding: 36px 20px 28px;
+	}
+
+	.ar-h1 {
+		font-size: 32px;
+	}
+
+	.ar-hero {
+		padding: 0 20px 48px;
+	}
+
+	.ar-hero__box {
+		height: 280px;
+		border-radius: 20px;
+	}
+
+	.ar-main {
+		padding: 0 20px 64px;
+	}
+
+	.ar-body {
+		font-size: 16px;
+	}
+
+	.ar-body>p:first-child {
+		font-size: 18px;
+	}
+
+	.ar-body h2 {
+		font-size: 26px;
+		margin-top: 44px;
+	}
+
+	.ar-body blockquote {
+		font-size: 20px;
+		padding-left: 20px;
+	}
+
+	.ar-related-sec {
+		padding: 60px 20px;
+	}
+
+	.ar-related {
+		grid-template-columns: 1fr;
+	}
 }
 
 /* ---- Плашка-призыв в тексте статьи ---- */
@@ -459,5 +494,75 @@
 	.ar-body .ar-cta__btn {
 		width: 100%;
 		text-align: center;
+	}
+}
+
+/* ===== Таблицы в статьях ===== */
+
+/* Обёртка Gutenberg: даём горизонтальную прокрутку на телефоне */
+.wp-block-table {
+	margin: 36px 0;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.wp-block-table table {
+	width: 100%;
+	min-width: 460px;
+	/* ниже этой ширины включается прокрутка */
+	border-collapse: collapse;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+/* Шапка */
+.wp-block-table thead th {
+	background: #f4f1ec;
+	color: #1f1b16;
+	font-weight: 600;
+	text-align: left;
+	padding: 14px 16px;
+	border-bottom: 2px solid #ddd5c8;
+}
+
+/* Ячейки */
+.wp-block-table td {
+	padding: 13px 16px;
+	border-bottom: 1px solid #eae5dc;
+	vertical-align: top;
+}
+
+/* Зебра: читать строку глазами проще */
+.wp-block-table tbody tr:nth-child(even) td {
+	background: #faf8f5;
+}
+
+/* Последняя строка без лишней линии */
+.wp-block-table tbody tr:last-child td {
+	border-bottom: none;
+}
+
+/* Первая колонка чуть заметнее: это название, а не значение */
+.wp-block-table td:first-child {
+	font-weight: 500;
+	color: #1f1b16;
+}
+
+/* Подпись под таблицей, если добавишь */
+.wp-block-table figcaption {
+	margin-top: 10px;
+	font-size: 14px;
+	color: #6b6358;
+}
+
+/* Телефон: ужимаем отступы, чтобы помещалось больше */
+@media (max-width: 600px) {
+	.wp-block-table table {
+		font-size: 15px;
+	}
+
+	.wp-block-table thead th,
+	.wp-block-table td {
+		padding: 11px 12px;
 	}
 }
