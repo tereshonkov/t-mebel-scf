@@ -49,9 +49,10 @@ if (! $terms) {
                 <a class="pf-panel" href="<?php echo esc_url(get_term_link($term)); ?>">
                     <?php
                     if ($image) {
+                        $alt = trim((string) get_post_meta((int) $image, '_wp_attachment_image_alt', true));
                         echo wp_get_attachment_image($image, 'large', false, array(
                             'class'   => 'pf-panel__img',
-                            'alt'     => '',
+                            'alt'     => $alt ?: esc_html($term->name),
                             'sizes'   => '(max-width: 760px) 100vw, 600px',
                             'loading' => 'lazy',
                         ));
