@@ -37,6 +37,8 @@ $tm_modules = array(
 	'inc/calculator-engine.php',    // формула розрахунку калькулятора
 	'inc/calculator-api.php',    // REST API для калькулятора
 	'inc/calculator-lead.php',    // REST API для заявки з калькулятора
+	'inc/wardrobe-settings.php',  // налаштування калькулятора шафи (ціни, коефіцієнти, формули)
+	'inc/wardrobe-engine.php',    // формула розрахунку калькулятора шафи
 );
 
 foreach ($tm_modules as $tm_file) {
