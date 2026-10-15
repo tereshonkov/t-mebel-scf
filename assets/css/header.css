@@ -526,3 +526,7 @@ body.menu-open {
         display: none
     }
 }
+
+.mm-panel.mm-sm {
+    width: min(560px, calc(100vw - 48px))
+}

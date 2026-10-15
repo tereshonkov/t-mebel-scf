@@ -1,0 +1,65 @@
+/* ===== КАЛЬКУЛЯТОР ШКАФА ===== */
+/* Базовые стили берутся из calc_full.css, здесь только то, чего там нет. */
+
+/* Подсказка с количеством дверей под слайдером ширины */
+.cl-hint {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: var(--c-cream-2);
+    font-size: 13px;
+    color: #4A3B2C
+}
+
+.cl-hint b {
+    font-family: var(--f-serif);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--c-brown)
+}
+
+.cl-hint span {
+    color: var(--c-muted)
+}
+
+/* Подблок внутри шага: высота, глубина, наполнение дверей */
+.cl-sub {
+    margin-top: 26px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(42, 33, 24, .08)
+}
+
+.cl-sub-label {
+    margin-bottom: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: #4A3B2C
+}
+
+/* Строка "цена под ключ" под ценой в сайдбаре */
+.cl-turnkey {
+    margin: 14px 0 4px;
+    padding: 11px 15px;
+    border-radius: 12px;
+    background: var(--c-cream-2);
+    font-size: 13px;
+    line-height: 1.5;
+    color: #4A3B2C
+}
+
+@media (max-width: 760px) {
+    .cl-sub {
+        margin-top: 20px;
+        padding-top: 18px
+    }
+
+    .cl-hint {
+        margin-top: 12px;
+        padding: 7px 13px;
+        font-size: 12px
+    }
+}

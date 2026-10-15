@@ -37,6 +37,14 @@ add_action('wp_enqueue_scripts', function () {
 		}
 	}
 
+	// Калькулятор шафи користується стилями кухонного, підключаємо їх першими.
+	if (in_array('calc_wardrobe', tm_page_layouts(), true)) {
+		$rel = 'assets/css/sections/calc_full.css';
+		if (file_exists(TM_DIR . '/' . $rel)) {
+			wp_enqueue_style('tm-section-calc_full', TM_URI . '/' . $rel, array('tm-base'), tm_asset_version($rel));
+		}
+	}
+
 	// Сторінка "Наші роботи" (/service/) і сторінки категорій: у них немає секцій, тому підключаємо свої файли.
 	if (is_post_type_archive('project') || is_tax('project_category')) {
 		foreach (array('works', 'sections/form_card') as $name) {
@@ -47,52 +55,52 @@ add_action('wp_enqueue_scripts', function () {
 		}
 	}
 
-	if ( is_singular( 'project' ) ) {
+	if (is_singular('project')) {
 		$rel = 'assets/css/project.css';
-		if ( file_exists( TM_DIR . '/' . $rel ) ) {
-			wp_enqueue_style( 'tm-project', TM_URI . '/' . $rel, array( 'tm-base' ), tm_asset_version( $rel ) );
+		if (file_exists(TM_DIR . '/' . $rel)) {
+			wp_enqueue_style('tm-project', TM_URI . '/' . $rel, array('tm-base'), tm_asset_version($rel));
 		}
 
 		$rel_js = 'assets/js/project.js';
-		if ( file_exists( TM_DIR . '/' . $rel_js ) ) {
-			wp_enqueue_script( 'tm-project-js', TM_URI . '/' . $rel_js, array(), tm_asset_version( $rel_js ), true );
+		if (file_exists(TM_DIR . '/' . $rel_js)) {
+			wp_enqueue_script('tm-project-js', TM_URI . '/' . $rel_js, array(), tm_asset_version($rel_js), true);
 		}
 
 		$rel_lead = 'assets/css/sections/lead.css';
-		if ( file_exists( TM_DIR . '/' . $rel_lead ) ) {
-			wp_enqueue_style( 'tm-section-lead', TM_URI . '/' . $rel_lead, array( 'tm-base' ), tm_asset_version( $rel_lead ) );
+		if (file_exists(TM_DIR . '/' . $rel_lead)) {
+			wp_enqueue_style('tm-section-lead', TM_URI . '/' . $rel_lead, array('tm-base'), tm_asset_version($rel_lead));
 		}
 	}
 
-	if ( is_post_type_archive( 'guide' ) || is_tax( 'guide_category' ) ) {
-		foreach ( array( 'guides', 'sections/lead' ) as $name ) {
+	if (is_post_type_archive('guide') || is_tax('guide_category')) {
+		foreach (array('guides', 'sections/lead') as $name) {
 			$rel = "assets/css/{$name}.css";
-			if ( file_exists( TM_DIR . '/' . $rel ) ) {
-				wp_enqueue_style( 'tm-' . str_replace( '/', '-', $name ), TM_URI . '/' . $rel, array( 'tm-base' ), tm_asset_version( $rel ) );
+			if (file_exists(TM_DIR . '/' . $rel)) {
+				wp_enqueue_style('tm-' . str_replace('/', '-', $name), TM_URI . '/' . $rel, array('tm-base'), tm_asset_version($rel));
 			}
 		}
 	}
 
-	if ( is_singular( 'guide' ) ) {
-		foreach ( array( 'guide-single', 'sections/lead' ) as $name ) {
+	if (is_singular('guide')) {
+		foreach (array('guide-single', 'sections/lead') as $name) {
 			$rel = "assets/css/{$name}.css";
-			if ( file_exists( TM_DIR . '/' . $rel ) ) {
-				wp_enqueue_style( 'tm-' . str_replace( '/', '-', $name ), TM_URI . '/' . $rel, array( 'tm-base' ), tm_asset_version( $rel ) );
+			if (file_exists(TM_DIR . '/' . $rel)) {
+				wp_enqueue_style('tm-' . str_replace('/', '-', $name), TM_URI . '/' . $rel, array('tm-base'), tm_asset_version($rel));
 			}
 		}
 	}
 
-	if ( is_404() ) {
-	$rel = 'assets/css/404.css';
-		if ( file_exists( TM_DIR . '/' . $rel ) ) {
-			wp_enqueue_style( 'tm-404', TM_URI . '/' . $rel, array( 'tm-base' ), tm_asset_version( $rel ) );
+	if (is_404()) {
+		$rel = 'assets/css/404.css';
+		if (file_exists(TM_DIR . '/' . $rel)) {
+			wp_enqueue_style('tm-404', TM_URI . '/' . $rel, array('tm-base'), tm_asset_version($rel));
 		}
 	}
 
-	if ( is_page_template( 'template-text.php' ) ) {
-	$rel = 'assets/css/text-page.css';
-		if ( file_exists( TM_DIR . '/' . $rel ) ) {
-			wp_enqueue_style( 'tm-text-page', TM_URI . '/' . $rel, array( 'tm-base' ), tm_asset_version( $rel ) );
+	if (is_page_template('template-text.php')) {
+		$rel = 'assets/css/text-page.css';
+		if (file_exists(TM_DIR . '/' . $rel)) {
+			wp_enqueue_style('tm-text-page', TM_URI . '/' . $rel, array('tm-base'), tm_asset_version($rel));
 		}
 	}
 
