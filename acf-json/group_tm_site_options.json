@@ -230,6 +230,119 @@
             ]
         },
         {
+            "key": "field_6ad09ef81486c",
+            "label": "Мега-меню калькулятора (UA)",
+            "name": "mega_calc_items_ua",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Показуються у випадаючій панелі пункту меню з CSS-класом menu-item-mega.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 8,
+            "collapsed": "field_tm_mega_title_ua",
+            "button_label": "Додати картку",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6ad09ef81486d",
+                    "label": "Фото",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Квадратне фото, від 200x200.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 1,
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_6ad09ef81486c"
+                },
+                {
+                    "key": "field_6ad09ef81486e",
+                    "label": "Назва",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6ad09ef81486c"
+                },
+                {
+                    "key": "field_6ad09ef81486f",
+                    "label": "Опис",
+                    "name": "desc",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6ad09ef81486c"
+                },
+                {
+                    "key": "field_6ad09ef814870",
+                    "label": "Посилання",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 1,
+                    "parent_repeater": "field_6ad09ef81486c"
+                }
+            ]
+        },
+        {
             "key": "field_tm_mega_items_ru",
             "label": "Картки мега-меню (RU)",
             "name": "mega_items_ru",
@@ -335,6 +448,119 @@
                     },
                     "return_format": "array",
                     "parent_repeater": "field_tm_mega_items_ru"
+                }
+            ]
+        },
+        {
+            "key": "field_6ad09f2314871",
+            "label": "Мега-меню калькулятора (RU)",
+            "name": "mega_calc_items_ru",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Показуються у випадаючій панелі пункту меню з CSS-класом menu-item-mega.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 8,
+            "collapsed": "field_tm_mega_title_ru",
+            "button_label": "Додати картку",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6ad09f2314872",
+                    "label": "Фото",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Квадратне фото, від 200x200.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 1,
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_6ad09f2314871"
+                },
+                {
+                    "key": "field_6ad09f2314873",
+                    "label": "Назва",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6ad09f2314871"
+                },
+                {
+                    "key": "field_6ad09f2314874",
+                    "label": "Опис",
+                    "name": "desc",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6ad09f2314871"
+                },
+                {
+                    "key": "field_6ad09f2314875",
+                    "label": "Посилання",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 1,
+                    "parent_repeater": "field_6ad09f2314871"
                 }
             ]
         },
@@ -790,5 +1016,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1791742669
+    "modified": 1792057175
 }
