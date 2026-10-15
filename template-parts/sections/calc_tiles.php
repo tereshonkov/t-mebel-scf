@@ -16,19 +16,6 @@ if (! function_exists('tm_calc_compute')) {
     return;
 }
 
-// Адрес страницы калькулятора на текущем языке (украинскую ищем по адресу, на русской берём перевод).
-if (! function_exists('tm_calc_page_url')) {
-    function tm_calc_page_url(): string
-    {
-        $page = get_page_by_path('calculator');
-        if ($page && function_exists('pll_get_post')) {
-            $translated = pll_get_post($page->ID);
-            $page       = $translated ? get_post($translated) : $page;
-        }
-        return $page ? get_permalink($page) : home_url(tm_t('/calculator/', '/ru/kalkulyator/'));
-    }
-}
-
 $eyebrow = get_sub_field('eyebrow') ?: tm_t('Калькулятор', 'Калькулятор');
 $title   = get_sub_field('title') ?: tm_t('Скільки коштуватиме ваша кухня?', 'Сколько будет стоить ваша кухня?');
 $text    = get_sub_field('text') ?: tm_t(

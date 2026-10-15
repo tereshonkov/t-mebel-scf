@@ -6,30 +6,31 @@ defined('ABSPATH') || exit;
  * Працює для сторінок/записів і для сторінок категорій (терміни таксономій).
  * Кешується на час запиту, щоб не читати поля двічі.
  */
-function tm_page_layouts(): array {
+function tm_page_layouts(): array
+{
 	static $cache = null;
-	if ( null !== $cache ) {
+	if (null !== $cache) {
 		return $cache;
 	}
 	$cache = array();
-	if ( ! function_exists( 'get_field' ) ) {
+	if (! function_exists('get_field')) {
 		return $cache;
 	}
 
 	$source = tm_sections_source();
-	if ( ! $source ) {
+	if (! $source) {
 		return $cache;
 	}
 
-	$rows = get_field( 'sections', $source );
-	if ( is_array( $rows ) ) {
-		foreach ( $rows as $row ) {
-			if ( ! empty( $row['acf_fc_layout'] ) ) {
-				$cache[] = sanitize_key( $row['acf_fc_layout'] );
+	$rows = get_field('sections', $source);
+	if (is_array($rows)) {
+		foreach ($rows as $row) {
+			if (! empty($row['acf_fc_layout'])) {
+				$cache[] = sanitize_key($row['acf_fc_layout']);
 			}
 		}
 	}
-	$cache = array_values( array_unique( $cache ) );
+	$cache = array_values(array_unique($cache));
 	return $cache;
 }
 
@@ -37,11 +38,12 @@ function tm_page_layouts(): array {
  * Откуда брать поле "sections" на текущей странице:
  * ID записи для страниц, "term_{ID}" для категорий, false если нигде.
  */
-function tm_sections_source() {
-	if ( is_singular() ) {
+function tm_sections_source()
+{
+	if (is_singular()) {
 		return get_queried_object_id();
 	}
-	if ( is_tax() || is_category() || is_tag() ) {
+	if (is_tax() || is_category() || is_tag()) {
 		$term = get_queried_object();
 		return $term ? 'term_' . $term->term_id : false;
 	}
@@ -66,7 +68,7 @@ function tm_link($link, string $class = '', string $fallback = ''): string
 	if (empty($link['url'])) {
 		return '';
 	}
-	$title  = ( $link['title'] ?? '' ) ?: $fallback;
+	$title  = ($link['title'] ?? '') ?: $fallback;
 	$target = ! empty($link['target']) ? ' target="' . esc_attr($link['target']) . '" rel="noopener"' : '';
 	$cls    = $class ? ' class="' . esc_attr($class) . '"' : '';
 	return '<a href="' . esc_url($link['url']) . '"' . $cls . $target . '>' . esc_html($title) . '</a>';
@@ -102,10 +104,11 @@ function tm_t(string $ua, string $ru): string
 /**
  * ID главной страницы на текущем языке (UA или RU).
  */
-function tm_front_page_id(): int {
-	$id = (int) get_option( 'page_on_front' );
-	if ( $id && function_exists( 'pll_get_post' ) ) {
-		$id = (int) ( pll_get_post( $id ) ?: $id );
+function tm_front_page_id(): int
+{
+	$id = (int) get_option('page_on_front');
+	if ($id && function_exists('pll_get_post')) {
+		$id = (int) (pll_get_post($id) ?: $id);
 	}
 	return $id;
 }
@@ -114,18 +117,19 @@ function tm_front_page_id(): int {
  * Вывести одну секцию с другой страницы, например форму с главной.
  * Внутри have_rows() работает get_sub_field(), поэтому шаблон секции менять не нужно.
  */
-function tm_render_layout_from( string $layout, $post_id ): bool {
-	if ( ! $post_id || ! function_exists( 'have_rows' ) ) {
+function tm_render_layout_from(string $layout, $post_id): bool
+{
+	if (! $post_id || ! function_exists('have_rows')) {
 		return false;
 	}
 
 	$found = false;
 
-	if ( have_rows( 'sections', $post_id ) ) {
-		while ( have_rows( 'sections', $post_id ) ) {
+	if (have_rows('sections', $post_id)) {
+		while (have_rows('sections', $post_id)) {
 			the_row();
-			if ( ! $found && get_row_layout() === $layout ) {
-				get_template_part( 'template-parts/sections/' . $layout );
+			if (! $found && get_row_layout() === $layout) {
+				get_template_part('template-parts/sections/' . $layout);
 				$found = true;
 			}
 		}
@@ -137,18 +141,20 @@ function tm_render_layout_from( string $layout, $post_id ): bool {
 /**
  * Время чтения статьи в минутах (около 180 слов в минуту).
  */
-function tm_read_time( $post_id = null ): int {
-	$text  = wp_strip_all_tags( get_post_field( 'post_content', $post_id ?: get_the_ID() ) );
-	$words = preg_split( '/\s+/u', trim( $text ), -1, PREG_SPLIT_NO_EMPTY );
-	return max( 1, (int) ceil( count( $words ) / 180 ) );
+function tm_read_time($post_id = null): int
+{
+	$text  = wp_strip_all_tags(get_post_field('post_content', $post_id ?: get_the_ID()));
+	$words = preg_split('/\s+/u', trim($text), -1, PREG_SPLIT_NO_EMPTY);
+	return max(1, (int) ceil(count($words) / 180));
 }
 
 /**
  * Название первой рубрики статьи.
  */
-function tm_guide_cat_name( $post_id = null ): string {
-	$terms = get_the_terms( $post_id ?: get_the_ID(), 'guide_category' );
-	return ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->name : '';
+function tm_guide_cat_name($post_id = null): string
+{
+	$terms = get_the_terms($post_id ?: get_the_ID(), 'guide_category');
+	return ($terms && ! is_wp_error($terms)) ? $terms[0]->name : '';
 }
 
 /**
@@ -173,8 +179,15 @@ function tm_guide_cta_html($term): string
 	$target = (int) get_field('cta_target', $key);
 
 	if (get_field('cta_calc', $key) && function_exists('tm_calc_page_url')) {
-		// Кнопка ведёт в калькулятор.
-		$url = tm_calc_page_url();
+		$slug      = $term->slug ?? '';
+		$calc_type = 'kitchen'; // по умолчанию кухня
+
+		// Если это категория шкафов — меняем тип
+	if (strpos($slug, 'shaf') !== false || strpos($slug, 'shkaf') !== false || strpos($slug, 'wardrobe') !== false) {
+        $calc_type = 'wardrobe';
+    }
+
+		$url = tm_calc_page_url($calc_type);
 	} else {
 		// Выбрали категорию на другом языке? Polylang вернёт её перевод на текущем.
 		if ($target && function_exists('pll_get_term')) {
@@ -204,17 +217,18 @@ function tm_guide_cta_html($term): string
  * Адрес страницы политики конфиденциальности на текущем языке.
  * Страница выбирается в Настройки → Конфиденциальность.
  */
-function tm_privacy_url(): string {
-	$id = (int) get_option( 'wp_page_for_privacy_policy' );
-	if ( ! $id ) {
+function tm_privacy_url(): string
+{
+	$id = (int) get_option('wp_page_for_privacy_policy');
+	if (! $id) {
 		return '';
 	}
 
-	if ( function_exists( 'pll_get_post' ) ) {
-		$id = (int) ( pll_get_post( $id ) ?: $id );
+	if (function_exists('pll_get_post')) {
+		$id = (int) (pll_get_post($id) ?: $id);
 	}
 
-	return 'publish' === get_post_status( $id ) ? get_permalink( $id ) : '';
+	return 'publish' === get_post_status($id) ? get_permalink($id) : '';
 }
 
 /**
@@ -222,13 +236,31 @@ function tm_privacy_url(): string {
  * Украинскую ищем по адресу calculator, на русской берём её перевод (Polylang).
  */
 if (! function_exists('tm_calc_page_url')) {
-	function tm_calc_page_url(): string
+	/**
+	 * Адрес страницы калькулятора на текущем языке (Polylang).
+	 * 
+	 * @param string $type Тип калькулятора: 'kitchen' (кухни) или 'wardrobe' (шкафы).
+	 */
+	function tm_calc_page_url(string $type = 'kitchen'): string
 	{
-		$page = get_page_by_path('calculator');
+		$slug = ($type === 'wardrobe') ? 'calculator-shafa' : 'calculator';
+
+		$page = get_page_by_path($slug);
+
 		if ($page && function_exists('pll_get_post')) {
 			$translated = pll_get_post($page->ID);
-			$page       = $translated ? get_post($translated) : $page;
+			$page = $translated ? get_post($translated) : $page;
 		}
-		return $page ? get_permalink($page) : home_url(tm_t('/calculator/', '/ru/kalkulyator/'));
+
+		if ($page) {
+			return get_permalink($page);
+		}
+
+		// Запасные варианты на случай, если страница не найдена в базе по слагу
+		if ($type === 'wardrobe') {
+			return home_url(tm_t('/calculator-shafa/', '/ru/kalkulyator-shkafa/'));
+		}
+
+		return home_url(tm_t('/calculator/', '/ru/kalkulyator/'));
 	}
 }
