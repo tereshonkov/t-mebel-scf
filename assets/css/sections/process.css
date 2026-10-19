@@ -155,7 +155,8 @@
     }
 
     .zig-side {
-        margin-bottom: 12px
+        margin-bottom: 12px;
+        min-height: 0
     }
 
     .zig-card,

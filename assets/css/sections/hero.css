@@ -155,8 +155,13 @@
 }
 
 @media (max-width:600px) {
+    .hero {
+        padding: 0px
+    }
+
     .hero__box {
-        padding: 0 20px 56px
+        padding: 0 20px 56px;
+        border-radius: 0
     }
 
     .hero__plaque {
