@@ -45,6 +45,14 @@ add_action('wp_enqueue_scripts', function () {
 		}
 	}
 
+	// Секция "Полезные статьи" использует карточки из стилей статьи.
+	if (in_array('guides_links', tm_page_layouts(), true)) {
+		$rel = 'assets/css/guide-single.css';
+		if (file_exists(TM_DIR . '/' . $rel)) {
+			wp_enqueue_style('tm-guide-single', TM_URI . '/' . $rel, array('tm-base'), tm_asset_version($rel));
+		}
+	}
+
 	// Сторінка "Наші роботи" (/service/) і сторінки категорій: у них немає секцій, тому підключаємо свої файли.
 	if (is_post_type_archive('project') || is_tax('project_category')) {
 		foreach (array('works', 'sections/form_card') as $name) {
