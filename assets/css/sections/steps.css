@@ -1,0 +1,109 @@
+/* Секция "Этапы со сроками": сетка карточек, плашка срока прижата к низу карточки. */
+
+.steps {
+    background: var(--c-cream);
+    padding: 90px var(--gutter);
+}
+
+.steps__inner {
+    max-width: var(--container);
+    margin: 0 auto;
+}
+
+.steps__head {
+    max-width: 680px;
+    margin-bottom: 40px;
+}
+
+.steps__eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--c-accent);
+    margin-bottom: 14px;
+}
+
+.steps__title {
+    font-family: var(--f-serif);
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.3;
+    color: var(--c-ink);
+    margin: 0;
+}
+
+.steps__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.steps__item {
+    display: flex;
+    flex-direction: column;
+    background: var(--c-white);
+    border-radius: 18px;
+    padding: 28px 24px;
+    box-shadow: 0 12px 30px -20px rgba(42, 33, 24, .3);
+}
+
+.steps__num {
+    font-family: var(--f-serif);
+    font-size: 24px;
+    color: var(--c-gold);
+    margin-bottom: 16px;
+}
+
+.steps__name {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--c-ink);
+    margin: 0 0 10px;
+}
+
+.steps__desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--c-text);
+    margin: 0 0 20px;
+}
+
+/* margin-top: auto прижимает плашку к низу, поэтому плашки в ряду стоят на одной линии. */
+.steps__time {
+    align-self: flex-start;
+    margin-top: auto;
+    max-width: 100%;
+    background: var(--c-cream-2);
+    color: var(--c-accent);
+    padding: 6px 12px;
+    border-radius: 14px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.steps__note {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--c-text);
+    margin: 28px 0 0;
+}
+
+.steps__note strong {
+    color: var(--c-ink);
+}
+
+@media (max-width: 560px) {
+    .steps {
+        padding: 60px var(--gutter);
+    }
+
+    .steps__title {
+        font-size: 26px;
+    }
+}
