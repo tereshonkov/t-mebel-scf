@@ -50,7 +50,7 @@ function tm_sections_source()
 	if (is_tax() || is_category() || is_tag()) {
 		$term = get_queried_object();
 		// Возвращаем строку вида "term_15" (где 15 — ID этой категории).
-        // Это специальный формат для ACF/SCF, чтобы читать поля из категорий, а не из постов.
+		// Это специальный формат для ACF/SCF, чтобы читать поля из категорий, а не из постов.
 		return $term ? 'term_' . $term->term_id : false;
 	}
 	// ШАГ 3: Если это вообще какой-то другой тип страницы (например, главная или архив без терма)
@@ -193,11 +193,17 @@ function tm_guide_cta_html($term): string
 		$calc_type = 'kitchen'; // по умолчанию кухня
 
 		// Если это категория шкафов — меняем тип
-	if (strpos($slug, 'shaf') !== false || strpos($slug, 'shkaf') !== false || strpos($slug, 'wardrobe') !== false) {
-        $calc_type = 'wardrobe';
-    }
+		if (strpos($slug, 'shaf') !== false || strpos($slug, 'shkaf') !== false || strpos($slug, 'wardrobe') !== false) {
+			$calc_type = 'wardrobe';
+		}
 
 		$url = tm_calc_page_url($calc_type);
+		// Метка источника: в заявке из калькулятора будет видно, что человек пришёл с плашки в статье
+		$url = add_query_arg(array(
+			'from' => 'article-banner',
+			'cat'  => $calc_type,
+			'a'    => get_post_field('post_name', get_queried_object_id()),
+		), $url);
 	} else {
 		// Выбрали категорию на другом языке? Polylang вернёт её перевод на текущем.
 		if ($target && function_exists('pll_get_term')) {
