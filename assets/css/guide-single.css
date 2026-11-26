@@ -149,16 +149,6 @@
 	text-align: center;
 }
 
-/* .ar-side__title {
-	font-family: var(--f-serif);
-	font-size: 20px;
-	font-weight: 500;
-	line-height: 1.25;
-	color: #2A2118;
-	margin-bottom: 16px;
-	text-wrap: balance;
-} */
-
 /* Перебиваем стиль ссылок оглавления (.ar-toc a) */
 .ar-toc .ar-side__btn {
 	display: block;

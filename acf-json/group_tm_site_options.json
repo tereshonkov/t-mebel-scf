@@ -993,6 +993,202 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_6b084e642ec57",
+            "label": "Відгуки Google",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "allow_in_bindings": false,
+            "selected": 0
+        },
+        {
+            "key": "field_6b084e842ec58",
+            "label": "Рейтинг",
+            "name": "reviews_rating",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 5,
+            "min": 1,
+            "max": 5,
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "0.1",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6b084ed52ec59",
+            "label": "Кількість відгуків",
+            "name": "reviews_count",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 0,
+            "max": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6b084eef2ec5a",
+            "label": "Посилання на профіль",
+            "name": "reviews_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6b084f062ec5b",
+            "label": "Відгуки",
+            "name": "reviews_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Добавить ряд",
+            "allow_in_bindings": false,
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6b084f232ec5c",
+                    "label": "Імя",
+                    "name": "name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "пиши уже сокращённо: «Илья Я.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6b084f062ec5b"
+                },
+                {
+                    "key": "field_6b084f552ec5d",
+                    "label": "Текст відгуку",
+                    "name": "text",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "дословно из Google",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_6b084f062ec5b"
+                },
+                {
+                    "key": "field_6b084f842ec5e",
+                    "label": "Що замовляли",
+                    "name": "product",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "Кухня», «Шафа-купе»; пусто, если в отзыве не сказано",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6b084f062ec5b"
+                },
+                {
+                    "key": "field_6b084fa62ec5f",
+                    "label": "Дата",
+                    "name": "date",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "необязательное: «листопад 2026»; пусто = дата не показывается",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6b084f062ec5b"
+                }
+            ]
         }
     ],
     "location": [
@@ -1014,7 +1210,7 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "allow_ai_access": false,
+    "enable_acf_abilities": 1,
     "ai_description": "",
-    "modified": 1792057175
+    "modified": 1795706837
 }
