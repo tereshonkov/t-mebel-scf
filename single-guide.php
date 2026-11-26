@@ -112,6 +112,34 @@ while (have_posts()) :
 					<?php foreach ($toc as $item) : ?>
 						<a href="#<?php echo esc_attr($item['id']); ?>"><?php echo esc_html($item['label']); ?></a>
 					<?php endforeach; ?>
+					<?php
+					// Карточка-призыв под оглавлением: те же настройки рубрики, что у плашки в тексте
+					if ($term && get_field('cta_title', 'term_' . $term->term_id)) :
+						$side_calc = tm_guide_calc_type($term);
+						$side_url  = tm_guide_cta_url($term, 'article-sidebar');
+
+						if ('wardrobe' === $side_calc) {
+							$side_eyebrow = tm_t('Калькулятор шафи', 'Калькулятор шкафа');
+							$side_title   = tm_t('Дізнайтеся ціну своєї шафи', 'Узнайте цену своего шкафа');
+						} elseif ('kitchen' === $side_calc) {
+							$side_eyebrow = tm_t('Калькулятор кухні', 'Калькулятор кухни');
+							$side_title   = tm_t('Дізнайтеся ціну своєї кухні', 'Узнайте цену своей кухни');
+						} else {
+							$side_eyebrow = tm_t('Наші роботи', 'Наши работы');
+							$side_title   = tm_t('Подивіться, що ми вже зробили', 'Посмотрите, что мы уже сделали');
+						}
+					?>
+						<div class="ar-side">
+							<div class="ar-side__eyebrow"><?php echo esc_html($side_eyebrow); ?></div>
+							<!-- <div class="ar-side__title"><?php echo esc_html($side_title); ?></div> -->
+							<a class="ar-side__btn" href="<?php echo esc_url($side_url); ?>">
+								<?php echo esc_html($side_calc ? tm_t('Розрахувати', 'Рассчитать') : tm_t('Дивитись роботи', 'Смотреть работы')); ?>
+							</a>
+							<?php if ($side_calc) : ?>
+								<div class="ar-side__note"><?php echo esc_html(tm_t('1 хвилина · без дзвінків', '1 минута · без звонков')); ?></div>
+							<?php endif; ?>
+						</div>
+					<?php endif; ?>
 				</aside>
 			<?php endif; ?>
 

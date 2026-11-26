@@ -123,6 +123,69 @@
 	border-color: #E7B876;
 }
 
+/* ---- Карточка-призыв под оглавлением ---- */
+.ar-side {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1.5rem;
+	margin-top: 32px;
+	padding: 22px 20px 18px;
+	background: #FFFDF9;
+	border: 1px solid rgba(42, 33, 24, .08);
+	border-top: 3px solid #E7B876;
+	border-radius: 18px;
+	box-shadow: 0 16px 40px -30px rgba(42, 33, 24, .45);
+	min-height: 250px;
+}
+
+.ar-side__eyebrow {
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: #8A5A2E;
+	margin-bottom: 8px;
+	text-align: center;
+}
+
+/* .ar-side__title {
+	font-family: var(--f-serif);
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 1.25;
+	color: #2A2118;
+	margin-bottom: 16px;
+	text-wrap: balance;
+} */
+
+/* Перебиваем стиль ссылок оглавления (.ar-toc a) */
+.ar-toc .ar-side__btn {
+	display: block;
+	padding: 14px 18px;
+	border-left: 0;
+	border-radius: 999px;
+	background: #E7B876;
+	color: #2A2118;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.2;
+	text-align: center;
+	transition: background .2s ease;
+}
+
+.ar-toc .ar-side__btn:hover {
+	background: #D9A75F;
+	color: #2A2118;
+}
+
+.ar-side__note {
+	margin-top: 10px;
+	font-size: 13px;
+	color: #8A7A66;
+	text-align: center;
+}
+
 /* ---- Типографика текста статьи ---- */
 .ar-body {
 	max-width: 720px;
@@ -504,8 +567,10 @@
 	margin: 36px 0;
 	overflow-x: auto;
 	-webkit-overflow-scrolling: touch;
-	max-width: 100%;    /* добавить */
-	min-width: 0;       /* добавить */
+	max-width: 100%;
+	/* добавить */
+	min-width: 0;
+	/* добавить */
 }
 
 .wp-block-table table {
@@ -559,6 +624,7 @@
 
 /* Телефон: таблица сжимается по ширине экрана, прокрутки нет */
 @media (max-width: 600px) {
+
 	.wp-block-table table,
 	.wp-block-table.has-fixed-layout table {
 		min-width: 0;

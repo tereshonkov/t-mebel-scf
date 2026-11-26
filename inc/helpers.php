@@ -168,9 +168,57 @@ function tm_guide_cat_name($post_id = null): string
 }
 
 /**
+ * Тип калькулятора для рубрики статей: 'wardrobe' для шкафов, иначе 'kitchen'.
+ * Пустая строка, если у рубрики не стоит галочка "Вести на калькулятор".
+ */
+function tm_guide_calc_type($term): string
+{
+	if (! $term || ! get_field('cta_calc', 'term_' . $term->term_id) || ! function_exists('tm_calc_page_url')) {
+		return '';
+	}
+
+	$slug = $term->slug ?? '';
+	if (strpos($slug, 'shaf') !== false || strpos($slug, 'shkaf') !== false || strpos($slug, 'wardrobe') !== false) {
+		return 'wardrobe';
+	}
+
+	return 'kitchen';
+}
+
+/**
+ * Адрес кнопки-призыва в статье по настройкам рубрики.
+ * $from: откуда кликнули, 'article-banner' (плашка в тексте) или 'article-sidebar' (карточка слева).
+ */
+function tm_guide_cta_url($term, string $from = 'article-banner'): string
+{
+	$calc_type = tm_guide_calc_type($term);
+
+	if ($calc_type) {
+		// Метка источника: в заявке из калькулятора будет видно, откуда пришёл человек
+		return add_query_arg(array(
+			'from' => $from,
+			'cat'  => $calc_type,
+			'a'    => get_post_field('post_name', get_queried_object_id()),
+		), tm_calc_page_url($calc_type));
+	}
+
+	// Выбрали категорию на другом языке? Polylang вернёт её перевод на текущем.
+	$target = $term ? (int) get_field('cta_target', 'term_' . $term->term_id) : 0;
+	if ($target && function_exists('pll_get_term')) {
+		$target = (int) (pll_get_term($target) ?: $target);
+	}
+
+	$url = $target ? get_term_link($target, 'project_category') : '';
+	if (! $url || is_wp_error($url)) {
+		$url = get_post_type_archive_link('project'); // запасной вариант: все работы
+	}
+
+	return $url;
+}
+
+/**
  * HTML плашки-призыва внутри статьи. Данные берутся из полей рубрики статьи.
  * Пустой заголовок у рубрики = плашки нет.
- * Галочка "Вести на калькулятор" у рубрики меняет адрес кнопки.
  */
 function tm_guide_cta_html($term): string
 {
@@ -184,37 +232,9 @@ function tm_guide_cta_html($term): string
 		return '';
 	}
 
-	$text   = get_field('cta_text', $key);
-	$label  = get_field('cta_label', $key) ?: tm_t('Розрахувати вартість', 'Рассчитать стоимость');
-	$target = (int) get_field('cta_target', $key);
-
-	if (get_field('cta_calc', $key) && function_exists('tm_calc_page_url')) {
-		$slug      = $term->slug ?? '';
-		$calc_type = 'kitchen'; // по умолчанию кухня
-
-		// Если это категория шкафов — меняем тип
-		if (strpos($slug, 'shaf') !== false || strpos($slug, 'shkaf') !== false || strpos($slug, 'wardrobe') !== false) {
-			$calc_type = 'wardrobe';
-		}
-
-		$url = tm_calc_page_url($calc_type);
-		// Метка источника: в заявке из калькулятора будет видно, что человек пришёл с плашки в статье
-		$url = add_query_arg(array(
-			'from' => 'article-banner',
-			'cat'  => $calc_type,
-			'a'    => get_post_field('post_name', get_queried_object_id()),
-		), $url);
-	} else {
-		// Выбрали категорию на другом языке? Polylang вернёт её перевод на текущем.
-		if ($target && function_exists('pll_get_term')) {
-			$target = (int) (pll_get_term($target) ?: $target);
-		}
-
-		$url = $target ? get_term_link($target, 'project_category') : '';
-		if (! $url || is_wp_error($url)) {
-			$url = get_post_type_archive_link('project'); // запасной вариант: все работы
-		}
-	}
+	$text  = get_field('cta_text', $key);
+	$label = get_field('cta_label', $key) ?: tm_t('Розрахувати вартість', 'Рассчитать стоимость');
+	$url   = tm_guide_cta_url($term, 'article-banner');
 
 	$html  = '<aside class="ar-cta">';
 	$html .= '<div class="ar-cta__text">';
