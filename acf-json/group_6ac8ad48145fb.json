@@ -1744,6 +1744,33 @@
                                     "placeholder": "",
                                     "new_lines": "",
                                     "parent_repeater": "field_6aca250126e89"
+                                },
+                                {
+                                    "key": "field_6b093f567dff6",
+                                    "label": "Зображення",
+                                    "name": "image",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "Для вигляду \"Зразок зверху\" або \"Фото на фоні\". Без зображення картка буде звичайною",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "allow_in_bindings": 0,
+                                    "preview_size": "medium",
+                                    "parent_repeater": "field_6aca250126e89"
                                 }
                             ]
                         },
@@ -1767,6 +1794,36 @@
                             "ui_on_text": "",
                             "ui_off_text": "",
                             "ui": 1
+                        },
+                        {
+                            "key": "field_6b093ee37dff5",
+                            "label": "Вигляд карток",
+                            "name": "view",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "plain": "Звичайні",
+                                "swatch": "Зразок зверху",
+                                "photo": "Фото на фоні"
+                            },
+                            "default_value": "plain",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
                         }
                     ],
                     "min": "",
@@ -3305,6 +3362,37 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_6b08524da74dc": {
+                    "key": "layout_6b08524da74dc",
+                    "name": "google_reviews",
+                    "label": "Відгуки Google",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6b085262a74de",
+                            "label": "Заголовок",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -3338,7 +3426,7 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "allow_ai_access": false,
+    "enable_acf_abilities": 1,
     "ai_description": "",
-    "modified": 1792582178
+    "modified": 1795768245
 }
