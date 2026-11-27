@@ -53,6 +53,14 @@ add_action('wp_enqueue_scripts', function () {
 		}
 	}
 
+	// Секция "Этапы" рисуется тем же зигзагом, что и "Как мы работаем" (process).
+	if (in_array('steps', tm_page_layouts(), true)) {
+		$rel = 'assets/css/sections/process.css';
+		if (file_exists(TM_DIR . '/' . $rel)) {
+			wp_enqueue_style('tm-section-process', TM_URI . '/' . $rel, array('tm-base'), tm_asset_version($rel));
+		}
+	}
+
 	// Сторінка "Наші роботи" (/service/) і сторінки категорій: у них немає секцій, тому підключаємо свої файли.
 	if (is_post_type_archive('project') || is_tax('project_category')) {
 		foreach (array('works', 'sections/form_card') as $name) {

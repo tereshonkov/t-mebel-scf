@@ -95,3 +95,232 @@
         font-size: 26px;
     }
 }
+
+/* ===== Вариант с картой (секция с координатами, класс geo--map) ===== */
+
+.geo--map .geo__inner {
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+}
+
+/* Две цифры: районы и населённые пункты */
+.geo__stats {
+    display: flex;
+    gap: 28px;
+    margin-top: 24px;
+}
+
+.geo__stat-num {
+    font-family: var(--f-serif);
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--c-brown);
+}
+
+.geo__stat-label {
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--c-text);
+}
+
+/* Названия текстом, тот же размер, что был у чипсов */
+.geo__places {
+    margin-top: 24px;
+}
+
+.geo__places-line {
+    margin: 0 0 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #4A3B2C;
+}
+
+.geo__places-line:last-child {
+    margin-bottom: 0;
+}
+
+.geo__places-line strong {
+    color: var(--c-ink);
+}
+
+/* Блок карты: до загрузки просто тёплый прямоугольник */
+.geo__map {
+    position: relative;
+    height: 520px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: #F3ECDF;
+    border: 1px solid rgba(42, 33, 24, .08);
+    box-shadow: 0 30px 60px -34px rgba(42, 33, 24, .45);
+    font-family: var(--f-sans);
+}
+
+/* ---- Внутренности карты ---- */
+
+/* Серо-тёплые плитки под цвета сайта */
+.geo__map .leaflet-container {
+    background: #F3ECDF;
+    font-family: var(--f-sans);
+}
+
+.geo__map .leaflet-tile-pane {
+    filter: grayscale(1) sepia(.42) saturate(.9) brightness(1.06) contrast(.88);
+}
+
+.geo__map .leaflet-control-attribution {
+    background: rgba(251, 244, 233, .85);
+    font-size: 10px;
+    color: var(--c-muted);
+}
+
+.geo__map .leaflet-control-attribution a {
+    color: var(--c-accent);
+}
+
+.geo__map .leaflet-control-zoom {
+    border: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px -10px rgba(42, 33, 24, .5);
+}
+
+.geo__map .leaflet-control-zoom a {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    background: var(--c-white);
+    color: var(--c-ink);
+    border-color: rgba(42, 33, 24, .08);
+}
+
+.geo__map .leaflet-control-zoom a:hover {
+    background: var(--c-gold);
+}
+
+.geo__map .leaflet-div-icon {
+    background: none;
+    border: 0;
+}
+
+/* Подпись места: точка + "таблетка" с названием */
+.geo-pin {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--c-white);
+    color: var(--c-ink);
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid rgba(42, 33, 24, .08);
+    box-shadow: 0 6px 16px -8px rgba(42, 33, 24, .55);
+}
+
+.geo-pin--r {
+    left: 6px;
+    top: 0;
+    transform: translateY(-50%);
+}
+
+.geo-pin--l {
+    right: 6px;
+    top: 0;
+    transform: translateY(-50%);
+}
+
+.geo-pin--c {
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+}
+
+.geo-pin--main {
+    padding: 8px 16px;
+    border: 0;
+    background: var(--c-brown);
+    color: var(--c-cream);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.geo-dot {
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    width: 10px;
+    height: 10px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background: var(--c-gold-line);
+    border: 2px solid var(--c-white);
+    box-shadow: 0 2px 6px rgba(42, 33, 24, .4);
+}
+
+.geo-dot--dark {
+    background: var(--c-brown);
+}
+
+/* Переключатель "Область / Передмістя / Райони" */
+.geo-switch {
+    position: absolute;
+    z-index: 1000;
+    left: 14px;
+    top: 14px;
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    border-radius: 999px;
+    background: rgba(255, 253, 249, .95);
+    box-shadow: 0 8px 20px -10px rgba(42, 33, 24, .5);
+}
+
+.geo-switch button {
+    padding: 9px 16px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: #4A3B2C;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+}
+
+.geo-switch button:hover {
+    background: rgba(42, 33, 24, .07);
+}
+
+.geo-switch button.is-on {
+    background: var(--c-brown);
+    color: var(--c-cream);
+}
+
+@media (max-width: 960px) {
+    .geo--map .geo__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .geo__map {
+        height: 440px;
+    }
+}
+
+@media (max-width: 480px) {
+    .geo__map {
+        height: 380px;
+        border-radius: 18px;
+    }
+
+    .geo-switch button {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .geo-pin {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+}

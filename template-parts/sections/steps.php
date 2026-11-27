@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Секция "Этапы со сроками": сетка карточек с номером, названием, описанием
- * и плашкой срока внизу. Под сеткой необязательная строка-итог.
- * В итоге разрешён только <strong>, чтобы выделить срок.
+ * Секция "Этапы со сроками": зигзаг вокруг линии, как секция "Как мы работаем" (process),
+ * стили берутся из process.css. Срок выводится внизу карточки.
+ * Под зигзагом необязательная строка-итог, в ней разрешён только <strong>.
  */
 defined('ABSPATH') || exit;
 
@@ -19,34 +19,52 @@ if (! $steps) {
     return;
 }
 ?>
-<section class="steps">
-    <div class="steps__inner">
+<section class="how steps">
+    <div class="how__inner">
 
         <?php if ($eyebrow || $title) : ?>
-            <div class="steps__head">
+            <div class="how__head">
                 <?php if ($eyebrow) : ?>
-                    <div class="steps__eyebrow"><?php echo esc_html($eyebrow); ?></div>
+                    <div class="how__eyebrow"><?php echo esc_html($eyebrow); ?></div>
                 <?php endif; ?>
                 <?php if ($title) : ?>
-                    <h2 class="steps__title"><?php echo esc_html($title); ?></h2>
+                    <h2 class="how__title"><?php echo esc_html($title); ?></h2>
                 <?php endif; ?>
             </div>
         <?php endif; ?>
 
-        <ol class="steps__list">
-            <?php foreach ($steps as $n => $step) : ?>
-                <li class="steps__item">
-                    <span class="steps__num" aria-hidden="true"><?php echo esc_html(sprintf('%02d', $n + 1)); ?></span>
-                    <h3 class="steps__name"><?php echo esc_html($step['title']); ?></h3>
-                    <?php if (! empty($step['desc'])) : ?>
-                        <p class="steps__desc"><?php echo esc_html($step['desc']); ?></p>
-                    <?php endif; ?>
-                    <?php if (! empty($step['time'])) : ?>
-                        <span class="steps__time"><?php echo esc_html($step['time']); ?></span>
-                    <?php endif; ?>
-                </li>
-            <?php endforeach; ?>
-        </ol>
+        <div class="zig">
+            <div class="zig-line" aria-hidden="true"></div>
+
+            <ol class="zig-rows">
+                <?php foreach ($steps as $i => $step) :
+                    $is_left = (0 === $i % 2);
+
+                    // Карточка одна и та же, меняется только сторона
+                    $card  = '<div class="zig-card zig-card--' . ($is_left ? 'left' : 'right') . '">';
+                    $card .= '<h3 class="zig-card__title">' . esc_html($step['title']) . '</h3>';
+                    if (! empty($step['desc'])) {
+                        $card .= '<p class="zig-card__desc">' . esc_html($step['desc']) . '</p>';
+                    }
+                    if (! empty($step['time'])) {
+                        $card .= '<p class="zig-card__foot">' . esc_html($step['time']) . '</p>';
+                    }
+                    $card .= '</div>';
+                ?>
+                    <li class="zig-row">
+                        <div class="zig-side"><?php echo $is_left ? $card : ''; // phpcs:ignore — всё экранировано выше 
+                                                ?></div>
+
+                        <div class="zig-node" aria-hidden="true">
+                            <span class="zig-num"><?php echo esc_html(sprintf('%02d', $i + 1)); ?></span>
+                        </div>
+
+                        <div class="zig-side"><?php echo $is_left ? '' : $card; // phpcs:ignore 
+                                                ?></div>
+                    </li>
+                <?php endforeach; ?>
+            </ol>
+        </div>
 
         <?php if ($note) : ?>
             <p class="steps__note"><?php echo wp_kses($note, array('strong' => array())); ?></p>
