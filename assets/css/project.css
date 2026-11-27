@@ -148,8 +148,13 @@
 	background: #E7B876;
 }
 
-.pj-prev { left: 16px; }
-.pj-next { right: 16px; }
+.pj-prev {
+	left: 16px;
+}
+
+.pj-next {
+	right: 16px;
+}
 
 .pj-thumbs {
 	display: grid;
@@ -230,7 +235,7 @@
 
 /* ---- Схожі проєкти ---- */
 .pj-related-sec {
-	background: #F3E1C4;
+	background: var(--c-cream);
 	padding: 90px 48px;
 }
 
@@ -323,13 +328,23 @@
 }
 
 @media (max-width: 960px) {
-	.pj-related { grid-template-columns: 1fr 1fr; }
+	.pj-related {
+		grid-template-columns: 1fr 1fr;
+	}
 }
 
 @media (max-width: 760px) {
-	.pj-related-sec { padding: 60px 20px; }
-	.pj-related-title { font-size: 28px; }
-	.pj-related { grid-template-columns: 1fr; }
+	.pj-related-sec {
+		padding: 60px 20px;
+	}
+
+	.pj-related-title {
+		font-size: 28px;
+	}
+
+	.pj-related {
+		grid-template-columns: 1fr;
+	}
 }
 
 @media (max-width: 960px) {
@@ -340,9 +355,23 @@
 }
 
 @media (max-width: 760px) {
-	.pj-head { padding: 28px 20px 24px; }
-	.pj-body { padding: 0 20px 60px; }
-	.pj-title { font-size: 32px; }
-	.pj-thumb { height: 64px; }
-	.pj-thumbs { gap: 8px; }
+	.pj-head {
+		padding: 28px 20px 24px;
+	}
+
+	.pj-body {
+		padding: 0 20px 60px;
+	}
+
+	.pj-title {
+		font-size: 32px;
+	}
+
+	.pj-thumb {
+		height: 64px;
+	}
+
+	.pj-thumbs {
+		gap: 8px;
+	}
 }

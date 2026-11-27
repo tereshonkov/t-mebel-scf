@@ -330,7 +330,7 @@
 
 /* ---- Читайте також ---- */
 .ar-related-sec {
-	background: #F3E1C4;
+	background: var(--c-cream);
 	padding: 90px 48px;
 }
 

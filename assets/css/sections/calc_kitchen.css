@@ -1,7 +1,7 @@
 /* ===== КАЛЬКУЛЯТОР КУХНИ (короткая версия, по макету) ===== */
 .calc {
     padding: 90px 48px;
-    background: var(--c-cream-2);
+    background: var(--c-cream);
     scroll-margin-top: 90px
 }
 

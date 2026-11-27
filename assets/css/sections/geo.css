@@ -1,7 +1,7 @@
 /* Секция "География": текст слева, списки-"чипсы" справа. */
 
 .geo {
-    background: var(--c-cream-2);
+    background: var(--c-cream);
     padding: 90px var(--gutter);
 }
 
